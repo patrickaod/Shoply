@@ -42,9 +42,9 @@ INSTALLED_APPS = [
     'allauth.socialaccount', # required for 'allauth' social media authentication
 
     # Allauth social media login Providers
-    'allauth.socialaccount.providers.facebook', # Facebook
-    'allauth.socialaccount.providers.google', # Google
-    'allauth.socialaccount.providers.twitter', # Twitter
+    #'allauth.socialaccount.providers.facebook', # Facebook
+    #'allauth.socialaccount.providers.google', # Google
+    #'allauth.socialaccount.providers.twitter', # Twitter
 ]
 
 MIDDLEWARE = [
@@ -86,8 +86,17 @@ AUTHENTICATION_BACKENDS = [
     
 ]
 
-WSGI_APPLICATION = 'shoply.wsgi.application'
+# Allauth regular account configuration 
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
+TrueACCOUNT_USERNAME_MIN_LENGTH = 4
+LOGIN_URL = '/account/login/'
+LOGIN_REDIRECT_URL = '/'
 
+# Web Server Gateway Interface
+WSGI_APPLICATION = 'shoply.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
