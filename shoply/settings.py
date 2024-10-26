@@ -25,7 +25,10 @@ SECRET_KEY = 'django-insecure-6bi$%f8znbdv4xqc5^9a%+%u-pmt2k_jg8+*%_q_c%=yh)nh%w
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-patrickaod-shoply-va2omw3lu8l.ws.codeinstitute-ide.net']
+ALLOWED_HOSTS = ['8000-patrickaod-shoply-pty45e5o1lq.ws.codeinstitute-ide.net']
+
+
+CSRF_TRUSTED_ORIGINS = ['https://8000-patrickaod-shoply-pty45e5o1lq.ws.codeinstitute-ide.net']
 
 
 # Application definition
@@ -92,7 +95,7 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 TrueACCOUNT_USERNAME_MIN_LENGTH = 4
-LOGIN_URL = '/account/login/'
+LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
 
 # Testing email back-end
