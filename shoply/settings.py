@@ -48,6 +48,10 @@ INSTALLED_APPS = [
     #'allauth.socialaccount.providers.facebook', # Facebook
     #'allauth.socialaccount.providers.google', # Google
     #'allauth.socialaccount.providers.twitter', # Twitter
+    
+    #Project Applications
+    'home',
+
 ]
 
 MIDDLEWARE = [
