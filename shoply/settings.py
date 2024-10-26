@@ -95,6 +95,9 @@ TrueACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL = '/account/login/'
 LOGIN_REDIRECT_URL = '/'
 
+# Testing email back-end
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 # Web Server Gateway Interface
 WSGI_APPLICATION = 'shoply.wsgi.application'
 
