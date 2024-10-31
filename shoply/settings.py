@@ -27,10 +27,10 @@ SECRET_KEY = 'django-insecure-6bi$%f8znbdv4xqc5^9a%+%u-pmt2k_jg8+*%_q_c%=yh)nh%w
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-patrickaod-shoply-pty45e5o1lq.ws.codeinstitute-ide.net']
+ALLOWED_HOSTS = ['*']
 
 
-CSRF_TRUSTED_ORIGINS = ['https://8000-patrickaod-shoply-pty45e5o1lq.ws.codeinstitute-ide.net']
+CSRF_TRUSTED_ORIGINS = ['https://*']
 
 
 # Application definition
