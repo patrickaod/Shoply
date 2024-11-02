@@ -2,15 +2,29 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 {% endblock %}
 
 {% block content %}
-    <div class="container h-100">
+<!-- Home Deals - Responsive Cards -->
+<div class="col-12">
+    <div class="row">
+        {% for deal in home_deals %}
+        <div class="col-6 col-lg-4 my-3">
+            <div class="card h-100">
+                <img src="{{ deal.image.url }}" class="card-img-top" alt="{{ deal.name }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ deal.name }}</h5>
+                    <p class="card-text">${{ deal.price }}</p>
+                    <a href="{% url 'item_detail' deal.id %}" class="btn btn-primary">View Deal</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
         <div class="row h-100">
             <div class="col-7 col-md-6 my-auto">
                 <h1 class="display-4 logo-font text-black">
@@ -23,5 +37,8 @@
                 </div>
             </div>
         </div>
+        {% endfor %}
     </div>
+</div>
+
 {% endblock %}
