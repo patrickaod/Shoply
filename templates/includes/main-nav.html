@@ -1,0 +1,98 @@
+<!-- Main Navigation Container -->
+<div class="container-fluid bg-light py-3">
+  <div class="row justify-content-center">
+    <!-- Outer Columns for Responsive Margin -->
+    <div class="col-11 col-lg-10">
+      <!-- Navigation Bar -->
+      <nav class="row justify-content-between align-items-center">
+        <!-- Logo and Categories (First Section) -->
+        <section class="col-3 d-flex align-items-center">
+          <div class="d-flex align-items-center w-100">
+            <!-- Logo -->
+            <a class="navbar-brand text-decoration-none text-dark me-3" href="#">Shoply</a>
+            <!-- Categories Dropdown -->
+            <ul class="nav">
+              <li class="nav-item dropdown">
+                <button class="nav-link btn btn-link text-dark d-flex align-items-center" type="button" id="Categories"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  <!-- Font Awesome Hamburger Icon (left side) -->
+                  <i class="fa-solid fa-bars"></i>
+                  Categories
+                </button>
+                <!-- Categories Dropdown Items -->
+                <ul class="dropdown-menu" aria-labelledby="Categories">
+                  <li><a class="dropdown-item" href="#">Rings</a></li>
+                  <li><a class="dropdown-item" href="#">Necklaces</a></li>
+                  <li><a class="dropdown-item" href="#">Bracelets</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <!-- Search Bar (Middle Section) -->
+        <section class="col-5 col-lg-6 d-flex justify-content-center">
+          <form class="d-flex mx-auto w-100">
+            <div class="input-group">
+              <!-- Search Bar -->
+              <label for="searchInput" class="visually-hidden">Search our site</label>
+              <input id="searchInput" type="search" class="form-control" name="q" placeholder="Search our site"
+                aria-label="Search">
+              <!-- Fontawesome Search Icon -->
+              <button class="btn btn-outline-secondary" type="submit">
+                <span class="icon">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </span>
+              </button>
+            </div>
+          </form>
+        </section>
+        <!-- User Icons (Last Section) -->
+        <section class="col-3 d-flex justify-content-center align-items-center">
+          <ul class="nav">
+            <!-- Sign-In (Visible only when user is not authenticated) -->
+            {% if not request.user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="#" data-bs-toggle="tooltip" data-bs-toggle="modal" data-bs-target="#signInModal"
+                data-bs-placement="bottom" title="Sign In">
+                <i class="fa-solid fa-sign-in-alt" style="font-size: 20px;"></i>
+              </a>
+            </li>
+            {% endif %}
+            <!-- Favourites Icon -->
+            <li class="nav-item">
+              <a href="#" class="btn btn-link position-relative text-dark" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                title="Favourites">
+                <i class="fa-solid fa-heart" style="font-size: 20px;"></i>
+              </a>
+            </li>
+            <!-- User Profile Dropdown (Visible only when user is authenticated) -->
+            {% if request.user.is_authenticated %}
+            <li class="nav-item dropdown">
+              <a class="nav-link text-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Your Account">
+                <i class="fa-solid fa-user-circle" style="font-size: 20px;"></i>
+              </a>
+              <!-- Dropdown Menu -->
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                {% if request.user.is_superuser %}
+                <li><a class="dropdown-item" href="#"><span>Website Management</span></a></li>
+                {% else %}
+                <li><a class="dropdown-item" href="#"><span>My Profile</span></a></li>
+                {% endif %}
+                <li><a class="dropdown-item" href="#"><span>Logout</span></a></li>
+              </ul>
+            </li>
+            {% endif %}
+            <!-- Basket Icon -->
+            <li class="nav-item">
+              <a href="#" class="btn btn-link position-relative text-dark" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                title="Basket">
+                <i class="fa-solid fa-basket-shopping" style="font-size: 20px;"></i>
+              </a>
+            </li>
+          </ul>
+        </section>
+      </nav>
+    </div>
+  </div>
+</div>
