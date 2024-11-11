@@ -11,8 +11,16 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
-
+from dotenv import load_dotenv
+from logging.handlers import RotatingFileHandler
 import os
+
+# Load the environment variables from .env file
+load_dotenv()
+
+# Access the environment variables using os.getenv()
+KAGGLE_USERNAME = os.getenv('KAGGLE_USERNAME')
+KAGGLE_KEY = os.getenv('KAGGLE_KEY')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -170,3 +178,65 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Loggers Settings
+
+# Define the logs directory relative to BASE_DIR
+LOGGING_DIR = os.path.join(BASE_DIR, 'logs')
+
+if not os.path.exists(LOGGING_DIR):
+    os.makedirs(LOGGING_DIR)  # Create logs directory if it doesn't exist
+
+# Loggers Configuration
+LOGGING = {
+    'version': 1,  # Use version 1 for Django logging configuration
+    'disable_existing_loggers': False,  # Keeps the default Django loggers enabled
+    'formatters': {
+        'verbose': {  # Defines a format for more detailed logging output
+            'format': '[{asctime}] {levelname} {module}: {message}',
+            'style': '{',  # Allows Python 3's `{}` string formatting
+            'datefmt': '%d/%m/%Y %H:%M:%S',  # UK-readable format: DD/MM/YYYY HH:MM:SS
+        },
+        'simple': {  # Simpler format for quick debugging
+            'format': '{levelname}: {message}',
+            'style': '{',
+        },
+    },
+    'handlers': {
+        'console': {  # Console handler to output logs to the terminal
+            'level': 'DEBUG', # Capture all logs at set level and below
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple',  # Uses the 'simple' formatter defined above
+        },
+        'file': {  # File handler to write logs to a file
+            'level': 'WARNING',  # Capture all logs at set level and above
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': os.path.join(BASE_DIR, 'logs/django.log'),  # Specify log file location
+            'maxBytes': 1024 * 1024 * 10,  # 10 MB
+            'backupCount': 5,  # Keep 5 old log files
+            'formatter': 'verbose',  # Uses the 'verbose' formatter for detailed output
+        },
+    },
+    'loggers': {
+        '': {  # Root logger - captures all logs
+            'handlers': ['console', 'file'],  # Logs to both console and file
+            'level': 'INFO',  # Default log level
+        },
+        'django': {  # Logger specifically for Django logs
+            'handlers': ['console', 'file'],
+            'level': 'INFO',  
+            'propagate': False,  # Prevents logs from propagating to the root logger
+        },
+        'django.request': {  # Logger specifically for HTTP request logs
+            'handlers': ['file'],
+            'level': 'ERROR',  # Log only errors related to requests
+            'propagate': False,
+        },
+        'shoply': {  # Custom logger you can use in your applications
+            'handlers': ['console', 'file'],
+            'level': 'DEBUG',  # Set lower for detailed logs when debugging
+            'propagate': False,
+        },
+    },
+}
