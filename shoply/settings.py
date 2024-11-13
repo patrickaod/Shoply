@@ -61,7 +61,9 @@ INSTALLED_APPS = [
     #'allauth.socialaccount.providers.twitter', # Twitter
     
     #Project Applications
+    'shoply',
     'home',
+    'products',
 
 ]
 
