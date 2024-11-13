@@ -4,7 +4,6 @@ from kaggle.api.kaggle_api_extended import KaggleApi
 from django.conf import settings
 import os
 import logging
-import tempfile
 
 # Get the logger instance
 logger = logging.getLogger('shoply')
@@ -29,7 +28,7 @@ class Command(BaseCommand):
             logger.error("You must provide a dataset URL using the --dataset-url option")
             return
 
-        logger.info(f'Downloading dataset from: {dataset_url}')
+        logger.info(f'Downloading dataset from: https://www.kaggle.com/datasets/{dataset_url}')
 
         # Step 2: Ensure Kaggle credentials are available
         kaggle_username = os.getenv("KAGGLE_USERNAME")
@@ -60,8 +59,3 @@ class Command(BaseCommand):
         except Exception as e:
             logger.error(f"Error downloading the dataset: {e}")
             return
-
-        # Step 6: Remove kaggle.json for security after downloading
-        kaggle_json_path.unlink()  # Delete the credentials file
-        logger.info("Kaggle credentials removed for security")
-
