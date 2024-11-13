@@ -63,4 +63,5 @@ class Command(BaseCommand):
 
         # Step 6: Remove kaggle.json for security after downloading
         kaggle_json_path.unlink()  # Delete the credentials file
-        self.stdout.write(self.style.SUCCESS("Kaggle credentials removed for security"))
+        logger.info("Kaggle credentials removed for security")
+
