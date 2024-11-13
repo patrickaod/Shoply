@@ -26,7 +26,7 @@ class Command(BaseCommand):
         dataset_url = kwargs['dataset_url']
 
         if not dataset_url:
-            self.stdout.write(self.style.ERROR("You must provide a dataset URL using the --dataset-url option"))
+            logger.error("You must provide a dataset URL using the --dataset-url option")
             return
 
         logger.info(f'Downloading dataset from: {dataset_url}')
