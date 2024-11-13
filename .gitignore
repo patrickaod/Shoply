@@ -12,3 +12,5 @@ cloudinary_python.txt
 .env
 *.log
 logs/
+*.csv
+data/
