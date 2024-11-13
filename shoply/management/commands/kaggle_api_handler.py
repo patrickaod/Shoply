@@ -17,7 +17,7 @@ class Command(BaseCommand):
         parser.add_argument(
             '--dataset-url',
             type=str,
-            help='The LAST PART of the Kaggle dataset URL to download (e.g., username/dataset-name)',
+            help='Use the LAST PART of the Kaggle dataset URL to download (e.g., username/dataset-name)',
         )
 
     def handle(self, *args, **kwargs):
