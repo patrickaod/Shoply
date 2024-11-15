@@ -38,7 +38,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['*'] # Temp variable!! Must be updated before deployment!!!
 
 
-CSRF_TRUSTED_ORIGINS = ['https://*'] # Temp variable!! Must be updated before deployment!!!
+CSRF_TRUSTED_ORIGINS = ['https://8000-patrickaod-shoply-q6pkmvkb3cb.ws.codeinstitute-ide.net'] # Temp variable!! Must be updated before deployment!!!
 
 
 
