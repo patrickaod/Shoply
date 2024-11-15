@@ -36,7 +36,7 @@ class Command(BaseCommand):
         try:
             with csv_file.open(mode='r', encoding='utf-8') as csv_file_obj:
                 csv_reader = csv.DictReader(csv_file_obj)
-                data = [row for row in csv_reader]
+                data = self.convert_csv_to_fixture_format(csv_reader)
 
             # Step 4: Save to JSON
             with json_file_path.open(mode='w', encoding='utf-8') as json_file_obj:
@@ -66,3 +66,29 @@ class Command(BaseCommand):
             # Add the new timestamp
             new_file_name = f"{current_timestamp}_{file_stem}"
             return new_file_name
+
+    def convert_csv_to_fixture_format(self, csv_reader):
+        """
+        Converts CSV rows into Django fixture format
+        Adds the model reference and transforms each row into 'fields' format.
+        """
+        data = []
+        for row in csv_reader:
+            # Create the fixture entry for each row
+            product_entry = {
+                "model": "products.Product",
+                "fields": {
+                    "asin": row['asin'],
+                    "title": row['title'],
+                    "imgUrl": row['imgUrl'],
+                    "productURL": row['productURL'],
+                    "stars": float(row['stars']) if row['stars'] else None,  # Convert to float
+                    "reviews": int(row['reviews']) if row['reviews'] else None,  # Convert to int
+                    "price": float(row['price']) if row['price'] else None,  # Convert to float
+                    "isBestSeller": row['isBestSeller'].lower() == 'true',  # Convert string to boolean
+                    "boughtInLastMonth": row['boughtInLastMonth'].lower() == 'true',  # Convert string to boolean
+                    "categoryName": row['categoryName']
+                }
+            }
+            data.append(product_entry)
+        return data
