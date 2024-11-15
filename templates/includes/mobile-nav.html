@@ -80,9 +80,13 @@
                             </button>
                             <!-- Categories Dropdown Items -->
                             <ul class="dropdown-menu" aria-labelledby="Categories">
-                                <li><a class="dropdown-item" href="#">Rings</a></li>
-                                <li><a class="dropdown-item" href="#">Necklaces</a></li>
-                                <li><a class="dropdown-item" href="#">Bracelets</a></li>
+                                <li><a class="dropdown-item {% if not selected_category %}active{% endif %}" href="?">All Products</a></li> <!-- Link to show all -->
+                                {% for category in categories %}
+                                <li>
+                                    <a class="dropdown-item {% if selected_category == category %}active{% endif %}"
+                                        href="?category={{ category|urlencode }}">{{ category }}</a>
+                                </li>
+                                {% endfor %}
                             </ul>
                         </li>
                     </ul>
@@ -93,8 +97,8 @@
                         <div class="input-group">
                             <!-- Search Bar -->
                             <label for="searchInput" class="visually-hidden">Search our site</label>
-                            <input id="searchInput" type="search" class="form-control" name="q" placeholder="Search our site"
-                                aria-label="Search">
+                            <input id="searchInput" type="search" class="form-control" name="q"
+                                placeholder="Search our site" aria-label="Search">
                             <!-- Fontawesome Search Icon -->
                             <button class="btn btn-outline-secondary" type="submit">
                                 <span class="icon">

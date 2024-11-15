@@ -21,9 +21,15 @@
                 </button>
                 <!-- Categories Dropdown Items -->
                 <ul class="dropdown-menu" aria-labelledby="Categories">
-                  <li><a class="dropdown-item" href="#">Rings</a></li>
-                  <li><a class="dropdown-item" href="#">Necklaces</a></li>
-                  <li><a class="dropdown-item" href="#">Bracelets</a></li>
+                  <li><a class="dropdown-item {% if not selected_category %}active{% endif %}" href="?">All Products</a></li> <!-- Link to show all -->
+                  {% for category in categories %}
+                  <li>
+                    <a class="dropdown-item {% if selected_category == category %}active{% endif %}"
+                      href="?category={{ category|urlencode }}">
+                      {{ category }}
+                    </a>
+                  </li>
+                  {% endfor %}
                 </ul>
               </li>
             </ul>
@@ -52,16 +58,16 @@
             <!-- Sign-In (Visible only when user is not authenticated) -->
             {% if not request.user.is_authenticated %}
             <li class="nav-item">
-              <a class="nav-link text-dark" href="#" data-bs-toggle="tooltip" data-bs-toggle="modal" data-bs-target="#signInModal"
-                data-bs-placement="bottom" title="Sign In">
+              <a class="nav-link text-dark" href="#" data-bs-toggle="tooltip" data-bs-toggle="modal"
+                data-bs-target="#signInModal" data-bs-placement="bottom" title="Sign In">
                 <i class="fa-solid fa-sign-in-alt" style="font-size: 20px;"></i>
               </a>
             </li>
             {% endif %}
             <!-- Favourites Icon -->
             <li class="nav-item">
-              <a href="#" class="btn btn-link position-relative text-dark" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                title="Favourites">
+              <a href="#" class="btn btn-link position-relative text-dark" data-bs-toggle="tooltip"
+                data-bs-placement="bottom" title="Favourites">
                 <i class="fa-solid fa-heart" style="font-size: 20px;"></i>
               </a>
             </li>
@@ -85,8 +91,8 @@
             {% endif %}
             <!-- Basket Icon -->
             <li class="nav-item">
-              <a href="#" class="btn btn-link position-relative text-dark" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                title="Basket">
+              <a href="#" class="btn btn-link position-relative text-dark" data-bs-toggle="tooltip"
+                data-bs-placement="bottom" title="Basket">
                 <i class="fa-solid fa-basket-shopping" style="font-size: 20px;"></i>
               </a>
             </li>
