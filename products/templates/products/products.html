@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container"></div>
+<div class="row">
+    <div class="col">
+        <!-- Display products -->
+        <div>
+            <h2>Products{% if selected_category %} in {{ selected_category }}{% endif %}</h2>
+            <ul>
+                {% for product in products %}
+                <li>
+                    <strong>{{ product.title }}</strong><br>
+                    Price: {{ product.price }}<br>
+                    <img src="{{ product.imgUrl }}" alt="{{ product.title }}" width="100">
+                </li>
+                {% endfor %}
+            </ul>
+            {% if not products %}
+            <p>No products found for this category.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}
