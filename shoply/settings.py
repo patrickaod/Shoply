@@ -64,6 +64,7 @@ INSTALLED_APPS = [
     'shoply',
     'home',
     'products',
+    'bag',
 
 ]
 
