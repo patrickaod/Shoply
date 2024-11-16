@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row">
+        <!-- Main Image -->
+        <div class="col-md-6">
+            <img src="{{ product.imgUrl }}" alt="{{ product.title }}" class="img-fluid">
+        </div>
+
+        <!-- Product Information -->
+        <div class="col-md-6">
+            <h2 class="mb-3">{{ product.title }}</h2>
+            <p class="text-muted">Category: {{ product.categoryName }}</p>
+            <p class="lead">${{ product.price }}</p>
+            <p>{{ product.description }}</p>
+            <a href="#" class="btn btn-primary">Add to Cart</a>
+        </div>
+    </div>
+<!-- Reviews Section -->
+<div class="mt-5">
+    <h3>Customer Reviews</h3>
+    {% if reviews %}
+    <ul class="list-unstyled">
+        {% for review in reviews %}
+        <li class="mb-4">
+            <div class="d-flex align-items-center">
+                <strong>{{ review.user.username }}</strong>
+                <span class="ml-2">- {{ review.created_at|date:"F j, Y" }}</span>
+            </div>
+            <p class="mb-1">
+                {% for star in "⭐"|slice:":review.rating" %}{{ star }}{% endfor %}
+            </p>
+            <p>{{ review.comment }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No reviews yet. Be the first to review this product!</p>
+    {% endif %}
+    {% if user.is_authenticated %}
+    <form method="POST" class="mt-4">
+        {% csrf_token %}
+        <h5>Leave a Review</h5>
+        <div class="mb-3">
+            <label for="rating" class="form-label">Rating (1-5)</label>
+            <select id="rating" name="rating" class="form-select">
+                <option value="1">1 - Poor</option>
+                <option value="2">2 - Fair</option>
+                <option value="3">3 - Good</option>
+                <option value="4">4 - Very Good</option>
+                <option value="5">5 - Excellent</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="comment" class="form-label">Comment</label>
+            <textarea id="comment" name="comment" class="form-control" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit Review</button>
+    </form>
+    {% else %}
+    <p class="text-muted">You must be logged in to leave a review.</p>
+    {% endif %}
+</div>
+
+<!-- Related Items Section -->
+<div class="mt-5">
+    <h3>Related Products</h3>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+        {% for related in related_products %}
+        <div class="col">
+            <div class="card h-100">
+                <img src="{{ related.imgUrl }}" class="card-img-top" alt="{{ related.title }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ related.title }}</h5>
+                    <p class="card-text">${{ related.price }}</p>
+                    <a href="{% url 'product_detail' related.id %}" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% if not related_products %}
+    <p class="text-muted">No related products found.</p>
+    {% endif %}
+</div>
+</div>
+
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+{% include 'products/includes/quantity_input_script.html' %}
+{% endblock %}
