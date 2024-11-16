@@ -78,13 +78,16 @@
                                 <!-- Font Awesome Hamburger Icon (left side) -->
                                 <i class="fa-solid fa-bars"></i>
                             </button>
-                            <!-- Categories Dropdown Items -->
-                            <ul class="dropdown-menu" aria-labelledby="Categories">
-                                <li><a class="dropdown-item {% if not selected_category %}active{% endif %}" href="?">All Products</a></li> <!-- Link to show all -->
+                            <!-- Navbar Dropdown -->
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item "
+                                        href="{% url 'products' %}">All Products</a></li>
                                 {% for category in categories %}
                                 <li>
                                     <a class="dropdown-item {% if selected_category == category %}active{% endif %}"
-                                        href="?category={{ category|urlencode }}">{{ category }}</a>
+                                        href="{% url 'products' %}?category={{ category|urlencode }}">
+                                        {{ category }}
+                                    </a>
                                 </li>
                                 {% endfor %}
                             </ul>
@@ -93,20 +96,20 @@
                 </section>
                 <!-- Search Bar (Last Section) -->
                 <section class="d-flex justify-content-center align-items-center flex-grow-1">
-                    <form class="d-flex mx-auto w-100">
+                    <form class="d-flex mx-auto w-100"  method="get" action="{% url 'products' %}">
                         <div class="input-group">
-                            <!-- Search Bar -->
-                            <label for="searchInput" class="visually-hidden">Search our site</label>
-                            <input id="searchInput" type="search" class="form-control" name="q"
-                                placeholder="Search our site" aria-label="Search">
-                            <!-- Fontawesome Search Icon -->
-                            <button class="btn btn-outline-secondary" type="submit">
-                                <span class="icon">
-                                    <i class="fa-solid fa-magnifying-glass"></i>
-                                </span>
-                            </button>
+                          <!-- Search Bar -->
+                          <label for="searchInput" class="visually-hidden">Search our site</label>
+                          <input id="searchInput" type="search" class="form-control" name="q"
+                              placeholder="Search our site" aria-label="Search">
+                          <!-- Fontawesome Search Icon -->
+                          <button class="btn btn-outline-secondary" type="submit">
+                            <span class="icon">
+                              <i class="fa-solid fa-magnifying-glass"></i>
+                            </span>
+                          </button>
                         </div>
-                    </form>
+                      </form>
                 </section>
             </nav>
         </div>
