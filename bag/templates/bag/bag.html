@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-5">
+    <h2>Your Shopping Bag</h2>
+
+    {% if bag_items %}
+    <div class="row">
+        <!-- Bag Items -->
+        <div class="col-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in bag_items %}
+                    <tr>
+                        <td>
+                            <div class="d-flex">
+                                <img src="{{ item.product.imgUrl }}" alt="{{ item.product.title }}" class="img-thumbnail" style="width: 100px; height: 100px;">
+                                <div class="ml-3">
+                                    <h5>{{ item.product.title }}</h5>
+                                    {% if item.size %}
+                                    <p><strong>Size:</strong> {{ item.size }}</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </td>
+                        <td>${{ item.product.price }}</td>
+                        <td>
+                            <form action="{% url 'adjust_bag' item.item_id %}" method="POST">
+                                {% csrf_token %}
+                                <input type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99" class="form-control" style="width: 80px;">
+                                <button type="submit" class="btn btn-warning mt-2">Update</button>
+                            </form>
+                        </td>
+                        <td>${{ item.subtotal }}</td>
+                        <td>
+                            <form action="{% url 'remove_from_bag' item.item_id %}" method="POST">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger">Remove</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Bag Summary -->
+    <div class="row mt-4">
+        <div class="col-12 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h4>Bag Summary</h4>
+                    <p><strong>Subtotal:</strong> ${{ total }}</p>
+                    <p><strong>Delivery:</strong> ${{ delivery }}</p>
+                    <p><strong>Free Delivery Threshold:</strong> ${{ free_delivery_threshold }}</p>
+                    {% if free_delivery_delta > 0 %}
+                    <p>You are {{ free_delivery_delta }} away from free delivery!</p>
+                    {% else %}
+                    <p>You qualify for free delivery!</p>
+                    {% endif %}
+                    <h4>Grand Total: ${{ grand_total }}</h4>
+                    <a href="" class="btn btn-primary text-uppercase">Proceed to Checkout</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <a href="{% url 'products' %}" class="btn btn-outline-primary">Continue Shopping</a>
+        </div>
+    </div>
+
+    {% else %}
+    <p>Your shopping bag is empty. <a href="{% url 'products' %}">Browse products</a> to add to your bag.</p>
+    {% endif %}
+</div>
+{% endblock %}
+{% block postloadjs %}
+{{ block.super }}
+<script type="text/javascript">
+    $('.btt-link').click(function(e) {
+        window.scrollTo(0,0)
+    })
+</script>
+{% include 'products/includes/quantity_input_script.html' %}
+
+<script type="text/javascript">
+    // Update quantity on click
+    $('.update-link').click(function(e) {
+        var form = $(this).prev('.update-form');
+        form.submit();
+    })
+
+    // Remove item and reload on click
+    $('.remove-item').click(function(e) {
+        var csrfToken = "{{ csrf_token }}";
+        var itemId = $(this).attr('id').split('remove_')[1];
+        var size = $(this).data('product_size');
+        var url = `/bag/remove/${itemId}/`;
+        var data = {'csrfmiddlewaretoken': csrfToken, 'product_size': size};
+
+        $.post(url, data)
+         .done(function() {
+             location.reload();
+         });
+    })
+</script>
+{% endblock %}
