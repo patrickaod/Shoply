@@ -42,7 +42,7 @@ CSRF_TRUSTED_ORIGINS = []
 host = os.environ.get("HOST")
 if host:
     ALLOWED_HOSTS.append(host)
-    CSRF_TRUSTED_ORIGINS.append(f"https//{host}")
+    CSRF_TRUSTED_ORIGINS.append(f"https://{host}")
 
 
 # Application definition
