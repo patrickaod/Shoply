@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load bag_tools %}
 
 {% block content %}
 <div class="container my-5">
@@ -40,7 +41,7 @@
                                 <button type="submit" class="btn btn-warning mt-2">Update</button>
                             </form>
                         </td>
-                        <td>${{ item.subtotal }}</td>
+                        <td>${{ item.product.price|calc_subtotal:item.quantity }}</td>
                         <td>
                             <form action="{% url 'remove_from_bag' item.item_id %}" method="POST">
                                 {% csrf_token %}
