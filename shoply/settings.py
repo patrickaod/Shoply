@@ -38,7 +38,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['*'] # Temp variable!! Must be updated before deployment!!!
 
 
-CSRF_TRUSTED_ORIGINS = ['https://8000-patrickaod-shoply-q6pkmvkb3cb.ws.codeinstitute-ide.net'] # Temp variable!! Must be updated before deployment!!!
+CSRF_TRUSTED_ORIGINS = ['https://8000-patrickaod-shoply-mzy1w1e8zbe.ws.codeinstitute-ide.net'] # Temp variable!! Must be updated before deployment!!!
 
 
 
@@ -96,10 +96,14 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'products.contexts.categories_processor', # required by navbar category dropdown
+                'bag.contexts.bag_contents', # required for global bag access
             ],
         },
     },
 ]
+
+#Message Storing
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 AUTHENTICATION_BACKENDS = [
     
@@ -244,3 +248,8 @@ LOGGING = {
         },
     },
 }
+
+# Delivery Variables
+
+FREE_DELIVERY_THRESHOLD = 50
+STANDARD_DELIVERY_PERCENTAGE = 10
