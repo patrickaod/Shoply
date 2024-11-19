@@ -24,7 +24,11 @@
                     <tr>
                         <td>
                             <div class="d-flex">
-                                <img src="{{ item.product.imgUrl }}" alt="{{ item.product.title }}" class="img-thumbnail" style="width: 100px; height: 100px;">
+                                {% if item.product.imgUrl %}
+                                <img class="w-100" src="{{ item.product.imgUrl }}" alt="{{ item.product.title }}" class="img-thumbnail" style="width: 100px; height: 100px;">
+                                {% else %}
+                                <img class="w-100" src="{{ MEDIA_URL }}no_image.jpeg" alt="{{ item.product.title }}" class="img-thumbnail" style="width: 100px; height: 100px;">
+                                {% endif %}
                                 <div class="ml-3">
                                     <h5>{{ item.product.title }}</h5>
                                     {% if item.size %}
