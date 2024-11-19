@@ -3,6 +3,8 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpR
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
 
 from .forms import OrderForm
 from .models import Order, OrderLineItem
@@ -21,7 +23,7 @@ import os
 def cache_checkout_data(request):
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
-        stripe.api_key =  os.environ.get(STRIPE_SECRET_KEY)
+        stripe.api_key =  settings.STRIPE_SECRET_KEY
         stripe.PaymentIntent.modify(pid, metadata={
             'bag': json.dumps(request.session.get('bag', {})),
             'save_info': request.POST.get('save_info'),
@@ -35,8 +37,8 @@ def cache_checkout_data(request):
 
 
 def checkout(request):
-    stripe_public_key = os.environ.get(STRIPE_PUBLISHABLE_KEY)
-    stripe_secret_key = os.environ.get(STRIPE_SECRET_KEY)
+    stripe_public_key = settings.STRIPE_PUBLISHABLE_KEY
+    stripe_secret_key = settings.STRIPE_SECRET_KEY
 
     if request.method == 'POST':
         bag = request.session.get('bag', {})
@@ -173,7 +175,20 @@ def checkout_success(request, order_number):
     messages.success(request, f'Order successfully processed! \
         Your order number is {order_number}. A confirmation \
         email will be sent to {order.email}.')
-
+    cust_email = order.email
+    subject = render_to_string(
+        'checkout/confirmation_emails/confirmation_mail_subject.txt',
+        {'order': order})
+    body = render_to_string(
+        'checkout/confirmation_emails/confirmation_mail_body.txt',
+        {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
+    
+    send_mail(
+        subject,
+        body,
+        settings.DEFAULT_FROM_EMAIL,
+        [cust_email]
+    ) 
     if 'bag' in request.session:
         del request.session['bag']
 
