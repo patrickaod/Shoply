@@ -82,7 +82,7 @@
               <!-- Dropdown Menu -->
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 {% if request.user.is_superuser %}
-                <li><a class="dropdown-item" href="#"><span>Website Management</span></a></li>
+                <li><a class="dropdown-item" href="{% url 'add_product' %}"><span>Website Management</span></a></li>
                 {% else %}
                 <li><a class="dropdown-item" href="#"><span>My Profile</span></a></li>
                 {% endif %}
