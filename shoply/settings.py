@@ -68,6 +68,7 @@ INSTALLED_APPS = [
 
     #Other
     'crispy_forms',
+    'crispy_bootstrap5',
 
 ]
 
@@ -86,6 +87,8 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'shoply.urls'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
 
 TEMPLATES = [
     {
@@ -269,7 +272,7 @@ FREE_DELIVERY_THRESHOLD = 50
 STANDARD_DELIVERY_PERCENTAGE = 10
 
 # Stripe
-STRIPE_CURRENCY = 'gdp'
+STRIPE_CURRENCY = 'gbp'
 STRIPE_PUBLISHABLE_KEY = os.getenv('STRIPE_PUBLISHABLE_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 if 'DEVELOPMENT' in os.environ:
