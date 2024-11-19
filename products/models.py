@@ -20,7 +20,7 @@ class Product(models.Model):
     reviews = models.IntegerField(null=True, blank=True)
     
     # Price of the product
-    price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+    price = models.DecimalField(max_digits=10, decimal_places=2, null=False, blank=False)
     
     # Whether or not the product is a bestseller
     isBestSeller = models.BooleanField(default=False)
