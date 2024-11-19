@@ -66,15 +66,15 @@
                 <div class="card-body">
                     <h4>Bag Summary</h4>
                     <p><strong>Subtotal:</strong> ${{ total }}</p>
-                    <p><strong>Delivery:</strong> ${{ delivery }}</p>
+                    <p><strong>Delivery:</strong> ${{ delivery | floatformat:2 }}</p>
                     <p><strong>Free Delivery Threshold:</strong> ${{ free_delivery_threshold }}</p>
                     {% if free_delivery_delta > 0 %}
                     <p>You are {{ free_delivery_delta }} away from free delivery!</p>
                     {% else %}
                     <p>You qualify for free delivery!</p>
                     {% endif %}
-                    <h4>Grand Total: ${{ grand_total }}</h4>
-                    <a href="" class="btn btn-primary text-uppercase">Proceed to Checkout</a>
+                    <h4>Grand Total: ${{ grand_total | floatformat:2 }}</h4>
+                    <a href="{% url 'checkout' %}" class="btn btn-primary text-uppercase">Proceed to Checkout</a>
                 </div>
             </div>
         </div>
