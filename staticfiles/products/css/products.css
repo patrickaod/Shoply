@@ -1,0 +1,104 @@
+/* Products Application */
+.card {
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-img-top {
+    object-fit: cover;
+    height: 200px;
+    width: 100%;
+  }
+  
+  /* Card body styles */
+  .card-body {
+    flex-grow: 1;
+  }
+  
+  /* Ensure button is at the bottom */
+  .card-body .btn {
+    margin-top: auto; /* Push button to the bottom */
+  }
+  
+  /* Styling for product titles and prices */
+  .card-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  
+  .card-text {
+    font-size: 1rem;
+    color: #777;
+  }
+  
+  .card-text.text-muted {
+    font-size: 1.1rem;
+    color: #555;
+  }
+  
+  /* Button Styling */
+  .btn-primary {
+    background-color: var(--primary-color);
+    border-color: #007bff;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+  }
+  
+  
+  /* Pagination styling */
+  .pagination {
+    margin-top: 30px;
+  }
+  
+  .page-item .page-link {
+    border-radius: 30px;
+    padding: 8px 16px;
+  }
+  
+  .page-item.active .page-link {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+  }
+  
+  .page-item .page-link:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+  
+  /* Pagination arrows */
+  .page-link[aria-label="Previous"], .page-link[aria-label="Next"] {
+    font-size: 1.2rem;
+  }
+  
+  .text-warning {
+    color: #f0ad4e;
+  }
+  
+  .text-danger {
+    color: #d9534f;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  
