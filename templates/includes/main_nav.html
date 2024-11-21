@@ -21,8 +21,7 @@
                 </button>
                 <!-- Navbar Dropdown -->
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item"
-                      href="{% url 'products' %}">All Products</a></li>
+                  <li><a class="dropdown-item" href="{% url 'products' %}">All Products</a></li>
                   {% for category in categories %}
                   <li>
                     <a class="dropdown-item {% if selected_category == category %}active{% endif %}"
@@ -38,12 +37,12 @@
         </section>
         <!-- Search Bar (Middle Section) -->
         <section class="col-5 col-lg-6 d-flex justify-content-center">
-          <form class="d-flex mx-auto w-100"  method="get" action="{% url 'products' %}">
+          <form class="d-flex mx-auto w-100" method="get" action="{% url 'products' %}">
             <div class="input-group">
               <!-- Search Bar -->
               <label for="searchInput" class="visually-hidden">Search our site</label>
-              <input id="searchInput" type="search" class="form-control" name="q"
-                  placeholder="Search our site" aria-label="Search">
+              <input id="searchInput" type="search" class="form-control" name="q" placeholder="Search our site"
+                aria-label="Search">
               <!-- Fontawesome Search Icon -->
               <button class="btn btn-outline-secondary" type="submit">
                 <span class="icon">
@@ -58,20 +57,20 @@
           <ul class="nav">
             <!-- Sign-In (Visible only when user is not authenticated) -->
             {% if not request.user.is_authenticated %}
-            <li class="nav-item">
-              <a class="nav-link text-dark" href="#" data-bs-toggle="tooltip" data-bs-toggle="modal"
-                data-bs-target="#signInModal" data-bs-placement="bottom" title="Sign In">
-                <i class="fa-solid fa-sign-in-alt" style="font-size: 20px;"></i>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false" title="Account">
+                <i class="fa-solid fa-user" style="font-size: 20px;"></i>
+                Account
               </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="{% url 'login' %}" data-bs-toggle="tooltip"
+                    data-bs-placement="bottom" title="Sign In">Sign In</a></li>
+                <li><a class="dropdown-item" href="{% url 'register' %}" data-bs-toggle="tooltip"
+                    data-bs-placement="bottom" title="Sign Up">Sign Up</a></li>
+              </ul>
             </li>
             {% endif %}
-            <!-- Favourites Icon -->
-            <li class="nav-item">
-              <a href="#" class="btn btn-link position-relative text-dark" data-bs-toggle="tooltip"
-                data-bs-placement="bottom" title="Favourites">
-                <i class="fa-solid fa-heart" style="font-size: 20px;"></i>
-              </a>
-            </li>
             <!-- User Profile Dropdown (Visible only when user is authenticated) -->
             {% if request.user.is_authenticated %}
             <li class="nav-item dropdown">
@@ -84,9 +83,9 @@
                 {% if request.user.is_superuser %}
                 <li><a class="dropdown-item" href="{% url 'add_product' %}"><span>Website Management</span></a></li>
                 {% else %}
-                <li><a class="dropdown-item" href="#"><span>My Profile</span></a></li>
+                <li><a class="dropdown-item" href="{% url 'profile' %}"><span>My Profile</span></a></li>
                 {% endif %}
-                <li><a class="dropdown-item" href="#"><span>Logout</span></a></li>
+                <li><a class="dropdown-item" href="{% url 'logout' %}"><span>Logout</span></a></li>
               </ul>
             </li>
             {% endif %}
