@@ -12,69 +12,56 @@
 {% block content %}
 <!-- Home Deals - Responsive Cards -->
 <div class="col-12">
-    <div class="row">
-        {% for deal in home_deals %}
-        <div class="col-6 col-lg-4 my-3">
-            <div class="card h-100">
-                <img src="{{ deal.image.url }}" class="card-img-top" alt="{{ deal.name }}">
-                <div class="card-body">
-                    <h5 class="card-title">{{ deal.name }}</h5>
-                    <p class="card-text">${{ deal.price }}</p>
-                    <a href="{% url 'item_detail' deal.id %}" class="btn btn-primary">View Deal</a>
-                </div>
+    <div class="row h-100">
+        <div class="col-7 col-md-6 my-auto">
+            <h1 class="display-4 logo-font text-black">
+                The new collections are here
+            </h1>
+            <div calss="my-5">
+                <h4>
+                    <a href="{% url 'products' %}" class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3">Shop Now</a>
+                </h4>
             </div>
         </div>
-        {% empty %}
-        <div class="row h-100">
-            <div class="col-7 col-md-6 my-auto">
-                <h1 class="display-4 logo-font text-black">
-                    The new collections are here
-                </h1>
-                <div calss="my-5">
-                    <h4>
-                        <a href="" class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3">Shop Now</a>
-                    </h4>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
     </div>
 </div>
-<!-- Recently Views Items - Responsive Grid -->
-<div class="col-12">
-    <div class="row">
-        {% for item in recently_viewed_items %}
-        <div class="col-6 col-md-4 col-lg-3 col-xl-2 mb-3 position-relative square-item">
-            <div class="card h-100">
-                <img src="{{ item.image.url }}" class="card-img-top square-image" alt="{{ item.name }}">
-                <!-- Price Badge at Bottom Left -->
-                <div class="price-badge">
-                    ${{ item.price }}
-                </div>
-            </div>
-        </div>
-        {% empty %}
-        <p class="text-center">No recently viewed items available.</p>
-        {% endfor %}
-    </div>
-</div>
-<!-- Most Trending Store Items -->
+<!-- Most Trending Store Products -->
 <div class="container-fluid my-5 text-center">
     <div class="row justify-content-center">
         <div class="col-12 mb-4">
             <h2 class="text-black">Trending Now</h2>
         </div>
 
-        <!-- Trending Items with Circular Layout -->
-        <div class="col-12 d-flex flex-wrap justify-content-center trending-items">
-            {% for item in trending_items %}
-            <div class="trending-item mx-2 my-2">
-                <img src="{{ item.image.url }}" alt="{{ item.name }}" class="circle-image">
+        <!-- Trending Products with Circular Layout -->
+        <div class="col-12 d-flex flex-wrap justify-content-center trending-products">
+            {% for product in trending_products %}
+            <div class="trending-product mx-2 my-2">
+                <img src="{{ product.imgUrl }}" alt="{{ product.title }}" class="circle-image">
             </div>
             {% empty %}
-            <p class="text-center">No trending items available.</p>
+            <p class="text-center">No trending Products available.</p>
             {% endfor %}
         </div>
+    </div>
+</div>
+<!-- Recently Views Items - Responsive Grid -->
+<div class="col-12">
+    <div class="row">
+        {% if recently_viewed_products %}
+        {% for product in recently_viewed_products %}
+        <div class="col-6 col-md-4 col-lg-3 col-xl-2 mb-3 position-relative square-product">
+            <div class="card h-100">
+                <img src="{{ product.imgUrl }}" class="card-img-top square-image" alt="{{ product.title }}">
+                <!-- Price Badge at Bottom Left -->
+                <div class="price-badge">
+                    ${{ product.price }}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <p>You haven't viewed any products yet!</p>
+        {% endif %}
     </div>
 </div>
 {% endblock %}
