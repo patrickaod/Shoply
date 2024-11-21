@@ -5,6 +5,7 @@ from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
 from .forms import ProductForm
 from django.contrib import messages
+from user_activity.models import RecentlyViewedProduct
 
 def product_search(request):
     """
@@ -44,6 +45,23 @@ def product_detail(request, product_id):
     A view to show individual product details
     """
     product = get_object_or_404(Product, pk=product_id)
+
+    if request.user.is_authenticated:
+        # Save or update recently viewed product for logged-in users
+        recently_viewed, created = RecentlyViewedProduct.objects.get_or_create(
+            user=request.user,
+            product=product
+        )
+        if not created:
+            recently_viewed.save()  # Update timestamp
+    else:
+        # Use session for anonymous users
+        recently_viewed = request.session.get('recently_viewed', [])
+        if product_id not in recently_viewed:
+            recently_viewed.append(product_id)
+            # Limit to the last 10 items
+            recently_viewed = recently_viewed[-10:]
+            request.session['recently_viewed'] = recently_viewed
 
     context = {
         'product': product,
