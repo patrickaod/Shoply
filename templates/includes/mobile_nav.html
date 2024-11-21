@@ -1,3 +1,4 @@
+{% load static %}
 <!-- Mobile Navigation Upper Container -->
 <div class="container-fluid bg-light pt-3">
     <div class="row justify-content-center">
@@ -7,9 +8,11 @@
             <nav class="d-flex justify-content-between align-items-center">
                 <!-- Logo (First Section) -->
                 <section class="d-flex align-items-center">
-                    <div>
-                        <a class="navbar-brand text-decoration-none text-dark me-4" href="{% url 'home' %}">Shoply</a>
-                    </div>
+                    <a class="navbar-brand d-flex align-items-center me-4" href="{% url 'home' %}">
+                        <!-- Logo -->
+                        <img src="{% static 'img/shoply_logo.png' %}" alt="Shoply Logo">
+                        Shoply
+                      </a>
                 </section>
                 <!-- User Icons (Last Section) -->
                 <section class="d-flex align-items-center">
@@ -23,11 +26,11 @@
                                 Account
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="{% url 'login' %}" data-bs-toggle="tooltip"
-                                        data-bs-placement="bottom" title="Sign In">Sign In</a></li>
-                                <li><a class="dropdown-item" href="{% url 'register' %}" data-bs-toggle="tooltip"
-                                        data-bs-placement="bottom" title="Sign Up">Sign Up</a></li>
-                            </ul>
+                                <li><a class="dropdown-item" href="{% url 'account_login' %}" data-bs-toggle="tooltip"
+                                    data-bs-placement="bottom" title="Sign In">Sign In</a></li>
+                                <li><a class="dropdown-item" href="{% url 'account_signup' %}" data-bs-toggle="tooltip"
+                                    data-bs-placement="bottom" title="Sign Up">Sign Up</a></li>
+                              </ul>
                         </li>
                         {% endif %}
                         <!-- User Profile Dropdown (Visible only when user is authenticated) -->
@@ -45,7 +48,7 @@
                                 {% else %}
                                 <li><a class="dropdown-item" href="{% url 'profile' %}"><span>My Profile</span></a></li>
                                 {% endif %}
-                                <li><a class="dropdown-item" href="{% url 'logout' %}"><span>Logout</span></a></li>
+                                <li><a class="dropdown-item" href="{% url 'account_logout' %}"><span>Logout</span></a></li>
                             </ul>
                         </li>
                         {% endif %}
