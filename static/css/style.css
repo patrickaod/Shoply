@@ -1,0 +1,414 @@
+/* General Theme */
+:root {
+  /* Green from logo */
+  --primary-color: #0b908b;
+  /* Darker teal */
+  --secondary-color: #38a89d;
+  /* Light gray */
+  --neutral-light: #f6f6f6;
+  /* Dark text */
+  --text-dark: #333333;
+  /* White */
+  --accent-color: #f39c12;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--neutral-light);
+  color: var(--text-dark);
+  margin: 0;
+  padding: 0;
+}
+/* Typography */
+h1,
+h2,
+h3 {
+  font-family: 'poppins', sans-serif;
+}
+p {
+  font-family: 'Roboto', sans-serif;
+}
+.accent-text {
+  font-family: 'pacifico', sans-serif;
+  color: var(--accent-color);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+/* Navbar Styles */
+.navbar-brand img {
+  /* Adjust logo size */
+  width: 30px;
+  /* Maintain aspect ratio */
+  height: auto;
+  /* Space between logo and text */
+  margin-right: 10px;
+}
+/* First Section - Logo and Categories */
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+.navbar-brand:hover {
+  color: var(--accent-color);
+}
+/* Categories Dropdown */
+.nav-item .dropdown-toggle {
+  font-size: 1.1rem;
+  color: var(--text-dark);
+  border: none;
+  background: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+/* Dropdown Menu */
+.dropdown-menu {
+  min-width: 250px;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.dropdown-item {
+  font-size: 1rem;
+  padding: 0.8rem;
+  color: var(--text-dark);
+  transition: background-color 0.3s ease;
+}
+/* Middle section - Search Bar */
+#searchInput {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+/* End section - User Icons */
+.user-icon{
+  font-size: 25px;
+}
+/* Shop Now Section */
+.shop-now-section {
+  /* Ensure the video is behind content */
+  position: relative;
+  /* Set the height to 80% of the viewport */
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--neutral-light);
+  text-align: center;
+  padding: 0 20px;
+}
+.background-video {
+  /* Position the video behind the content */
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* Ensure the video covers the entire section */
+  width: 100%;
+  height: 100%;
+  /* Ensure the video scales properly */
+  object-fit: cover;
+  /* Place the video behind other elements */
+  z-index: -1;
+}
+.shop-now-section h1 {
+  z-index: 1;
+  color: black; 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); 
+  position: relative; 
+  padding: 20px;
+  margin-right: 10px;
+  background: rgba(255, 255, 255, 0.3); 
+  backdrop-filter: blur(10px);
+  border-radius: 8px; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.shop-now-button {
+  z-index: 1;
+  background-color: #ff9900;
+  padding: 10px 20px;
+  font-size: 20px;
+  border-radius: 5px;
+  color: black;
+  text-transform: uppercase;
+}
+/* Trending Now Section */
+.trending-products {
+  gap: 15px;
+  padding: 20px 0;
+}
+.trending-product {
+  width: 150px;
+  height: 150px;
+  position: relative;
+}
+.circle-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--primary-color);
+  transition: transform 0.3s ease;
+}
+.circle-image:hover {
+  transform: scale(1.2);
+}
+
+/* Recently Viewed Items Section */
+.square-product {
+  position: relative;
+}
+
+.square-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.price-badge {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background-color: var(--accent-color);
+  color: var(--text-dark);
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  border-radius: 15px;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Products Application */
+.product-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.product-card .card-img-top {
+  object-fit: cover;
+  height: 200px;
+  width: 100%;
+}
+
+/* Card body styles */
+.product-card .card-body {
+  flex-grow: 1;
+}
+
+/* Ensure button is at the bottom */
+.product-card .card-body .btn {
+  margin-top: auto; /* Push button to the bottom */
+}
+
+/* Styling for product titles and prices */
+.product-card .card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.product-card .card-text {
+  font-size: 1rem;
+  color: var(--text-dark);
+}
+
+/* Button Styling */
+
+.product-card .btn-primary {
+  color: var(--text-dark);
+  background-color: var(--accent-color);
+  border-color: var(--text-dark);
+  padding: 8px 16px;
+  font-size: 0.9rem;
+}
+
+
+
+/* Pagination styling */
+.pagination {
+  margin-top: 30px;
+}
+
+.page-item .page-link {
+  border-radius: 30px;
+  padding: 8px 16px;
+}
+
+.page-item.active .page-link {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: white;
+}
+
+.page-item .page-link:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+/* Pagination arrows */
+.page-link[aria-label="Previous"], .page-link[aria-label="Next"] {
+  font-size: 1.2rem;
+}
+
+.text-warning {
+  color: #f0ad4e;
+}
+
+.text-danger {
+  color: #d9534f;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Style for the actions container */
+.product-actions {
+  display: flex;
+  gap: 10px; /* Space between links */
+  font-size: 0.875rem; /* Smaller text */
+}
+
+/* Styling for the Edit link */
+.product-actions .edit-link {
+  text-decoration: none; /* Remove underline */
+  color: #007bff; /* Blue color for the edit link */
+}
+
+.product-actions .edit-link:hover {
+  color: #0056b3; /* Darker blue on hover */
+  text-decoration: underline; /* Underline on hover */
+}
+
+/* Styling for the Delete link */
+.product-actions .delete-link {
+  cursor: pointer; /* Pointer cursor for delete */
+  color: #dc3545; /* Red color for delete link */
+}
+
+.product-actions .delete-link:hover {
+  color: #c82333; /* Darker red on hover */
+  text-decoration: underline; /* Underline on hover */
+}
+
+/* Product_details */
+  /* Image Styling */
+  .image-container img {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.image-container img:hover {
+    transform: scale(1.05);
+}
+
+/* Product details container */
+.product-details-container {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-details-container p.mb-0 {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #000;
+}
+
+
+.p-hover:hover{
+  color: var(--accent-color);
+}
+
+.increment-qty {
+  border: 2px solid #000;  /* Adds a 2px solid black border */
+}
+
+.decrement-qty {
+  border: 2px solid #000;  /* Adds a 2px solid black border */
+}
+
+/* Server Messages */
+
+.message-container {
+  position: fixed;
+  top: 72px;
+  right: 15px;
+  z-index: 99999999999;
+}
+
+.custom-toast {
+  overflow: visible;
+}
+
+.toast-capper {
+  height: 2px;
+}
+
+
+.bag-notification-wrapper {
+  height: 100px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+
+/* Responsive Layout Adjustments */
+@media (max-width: 768px) {
+  .header-container h1 {
+    font-size: 2rem;
+  }
+
+  .circle-image {
+    width: 90px;
+    height: 90px;
+  }
+
+  .price-badge {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .header-container {
+    padding: 50px 10px;
+  }
+
+  .header-container h1 {
+    font-size: 1.5rem;
+  }
+
+  .circle-image {
+    width: 70px;
+    height: 70px;
+  }
+
+  .price-badge {
+    font-size: 0.7rem;
+  }
+}
+
+
+/* For users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  #background-video {
+    /* Disable the video play on page load */
+    pointer-events: none;
+    /* Prevent video from being played automatically */
+  }
+}
