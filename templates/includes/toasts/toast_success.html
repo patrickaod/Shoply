@@ -20,8 +20,8 @@
                 {% for item in bag_items %}
                     <div class="row">
                         <div class="col-3 my-1">
-                            {% if item.product.image %}
-                            <img class="w-100" src="{{ item.product.imgUrl }}" alt="{{ item.product.title }}">
+                            {% if item.product.imgUrl %}
+                            <img class="w-100" src="{{ item.product.imgUrl }}" alt="{{ item.product.title }}" onError="this.onerror=null;this.src='{{ MEDIA_URL }}no_image.jpeg';">
                             {% else %}
                             <img class="w-100" src="{{ MEDIA_URL }}no_image.jpeg" alt="{{ item.product.title }}">
                             {% endif %}
