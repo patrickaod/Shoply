@@ -1,19 +1,19 @@
 /* General Theme */
 :root {
   /* Green from logo */
-  --primary-color: #0b908b;
+  --primary-color: #3FB2A5;
   /* Darker teal */
-  --secondary-color: #38a89d;
+  --secondary-color: #043A30;
   /* Light gray */
-  --neutral-light: #f6f6f6;
+  --neutral-light: #D0EFDF;
   /* Dark text */
-  --text-dark: #333333;
-  /* White */
+  --text-dark: #000000;
+  /* Orange */
   --accent-color: #f39c12;
 }
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: var(--neutral-light);
+  background-color: whitesmoke;
   color: var(--text-dark);
   margin: 0;
   padding: 0;
@@ -23,6 +23,9 @@ h1,
 h2,
 h3 {
   font-family: 'poppins', sans-serif;
+}
+h4 {
+  font-family: 'pacifico', sans-serif;
 }
 p {
   font-family: 'Roboto', sans-serif;
@@ -153,19 +156,16 @@ p {
 .circle-image:hover {
   transform: scale(1.2);
 }
-
 /* Recently Viewed Items Section */
 .square-product {
   position: relative;
 }
-
 .square-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 8px;
 }
-
 .price-badge {
   position: absolute;
   bottom: 10px;
@@ -178,7 +178,6 @@ p {
   font-weight: bold;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
-
 /* Products Application */
 .product-card {
   border: 1px solid #e0e0e0;
@@ -188,28 +187,23 @@ p {
   display: flex;
   flex-direction: column;
 }
-
 .product-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
-
 .product-card .card-img-top {
   object-fit: cover;
   height: 200px;
   width: 100%;
 }
-
 /* Card body styles */
 .product-card .card-body {
   flex-grow: 1;
 }
-
 /* Ensure button is at the bottom */
 .product-card .card-body .btn {
   margin-top: auto; /* Push button to the bottom */
 }
-
 /* Styling for product titles and prices */
 .product-card .card-title {
   font-size: 1.2rem;
@@ -219,14 +213,11 @@ p {
   white-space: nowrap;
   overflow: hidden;
 }
-
 .product-card .card-text {
   font-size: 1rem;
   color: var(--text-dark);
 }
-
 /* Button Styling */
-
 .product-card .btn-primary {
   color: var(--text-dark);
   background-color: var(--accent-color);
@@ -234,76 +225,54 @@ p {
   padding: 8px 16px;
   font-size: 0.9rem;
 }
-
-
-
 /* Pagination styling */
 .pagination {
   margin-top: 30px;
 }
-
 .page-item .page-link {
   border-radius: 30px;
   padding: 8px 16px;
 }
-
 .page-item.active .page-link {
   background-color: #007bff;
   border-color: #007bff;
   color: white;
 }
-
 .page-item .page-link:hover {
   background-color: #0056b3;
   border-color: #0056b3;
 }
-
 /* Pagination arrows */
 .page-link[aria-label="Previous"], .page-link[aria-label="Next"] {
   font-size: 1.2rem;
 }
-
-.text-warning {
-  color: #f0ad4e;
-}
-
 .text-danger {
   color: #d9534f;
 }
-
-.text-center {
-  text-align: center;
-}
-
 /* Style for the actions container */
 .product-actions {
   display: flex;
   gap: 10px; /* Space between links */
   font-size: 0.875rem; /* Smaller text */
 }
-
 /* Styling for the Edit link */
 .edit-link {
   text-decoration: none; /* Remove underline */
   color: #007bff; /* Blue color for the edit link */
 }
-
 .edit-link:hover {
   color: #0056b3; /* Darker blue on hover */
   text-decoration: underline; /* Underline on hover */
 }
-
 /* Styling for the Delete link */
 .delete-link {
   cursor: pointer; /* Pointer cursor for delete */
   color: #dc3545; /* Red color for delete link */
 }
-
 .delete-link:hover {
   color: #c82333; /* Darker red on hover */
   text-decoration: underline; /* Underline on hover */
 }
-
 /* Product_details */
   /* Image Styling */
   .image-container img {
@@ -311,11 +280,9 @@ p {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 }
-
 .image-container img:hover {
     transform: scale(1.05);
 }
-
 /* Product details container */
 .product-details-container {
   background-color: #ffffff;
@@ -323,91 +290,90 @@ p {
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
-
 .product-details-container p.mb-0 {
   font-size: 1.25rem;
   font-weight: 400;
   color: #000;
 }
-
 small span {
   cursor: pointer;
 }
-
-
 .p-hover:hover{
   color: var(--accent-color);
 }
-
 .increment-qty {
   border: 2px solid #000;  /* Adds a 2px solid black border */
 }
-
 .decrement-qty {
   border: 2px solid #000;  /* Adds a 2px solid black border */
 }
-
 /* Server Messages */
-
 .message-container {
   position: fixed;
   top: 72px;
   right: 15px;
   z-index: 99999999999;
 }
-
 .custom-toast {
   overflow: visible;
 }
-
 .toast-capper {
   height: 2px;
 }
-
-
 .bag-notification-wrapper {
   height: 100px;
   overflow-x: hidden;
   overflow-y: auto;
 }
-
-
+/* General Table Styling */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+.table td {
+  vertical-align: middle; /* Vertically center the content */
+}
+/* Image and Text Layout */
+.table .d-flex {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping of content */
+  align-items: center; /* Vertically center content in flex container */
+}
+.table .d-flex img {
+  max-height: 100px;
+  margin-right: 15px; /* Space between the image and title */
+}
+.table .d-flex .ml-3 {
+  flex: 1;
+}
 /* Responsive Layout Adjustments */
 @media (max-width: 768px) {
   .header-container h1 {
     font-size: 2rem;
   }
-
   .circle-image {
     width: 90px;
     height: 90px;
   }
-
   .price-badge {
     font-size: 0.8rem;
   }
 }
-
 @media (max-width: 576px) {
   .header-container {
     padding: 50px 10px;
   }
-
   .header-container h1 {
     font-size: 1.5rem;
   }
-
   .circle-image {
     width: 70px;
     height: 70px;
   }
-
   .price-badge {
     font-size: 0.7rem;
   }
 }
-
-
 /* For users who prefer reduced motion */
 @media (prefers-reduced-motion: reduce) {
   #background-video {
