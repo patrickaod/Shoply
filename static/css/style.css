@@ -1,14 +1,14 @@
 /* General Theme */
 :root {
   /* Green from logo */
-  --primary-color: #0b908b;
+  --primary-color: #3FB2A5;
   /* Darker teal */
-  --secondary-color: #38a89d;
+  --secondary-color: #043A30;
   /* Light gray */
-  --neutral-light: #f6f6f6;
+  --neutral-light: #D0EFDF;
   /* Dark text */
-  --text-dark: #333333;
-  /* White */
+  --text-dark: #000000;
+  /* Orange */
   --accent-color: #f39c12;
 }
 body {
