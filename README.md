@@ -72,3 +72,29 @@ I've implemented them as CSS `:root` variables to easily update the global colou
 
 - [Font Awesome](https://fontawesome.com) icons were used throughout the site, such as the account and basket icons in the navigation.
 
+## User Stories
+
+### Shopper
+
+- As a shopper, I would like to view a list of products, so that I can select some to purchase.
+- As a shopper, I would like to view specific categories, so that I can find something quickly.
+- As a shopper, I would like to select out a product, so that I focus on the product itself.
+
+
+### New Site Users
+
+- As a new site user, I would like to easily login, so that I can access my information quickly.
+- As a new site user, I would like to easily register, so that I can view my personal profile.
+- As a new site user, I would like to recieve email confirmation, so that I can verify my purchase.
+
+### Returning Site Users
+
+- As a returning site user, I would like to have my orders saved, so that I can review my purchases.
+- As a returning site user, I would like to quick access to products I've seen before, so that I don't have to write anything down.
+- As a returning site user, I would like to quickly see the most popular items, so that I can find some quick christmas gifts.
+
+### Site Admin
+
+- As a site administrator, I should be able to modify profiles, so that I can maintain site security.
+- As a site administrator, I should be able to see all products, so that I can check site inventory.
+- As a site administrator, I should be able to see change products, so that I can update site inventory.
