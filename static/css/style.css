@@ -373,8 +373,27 @@ small span {
   overflow-x: hidden;
   overflow-y: auto;
 }
-
-
+/* General Table Styling */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+.table td {
+  vertical-align: middle; /* Vertically center the content */
+}
+/* Image and Text Layout */
+.table .d-flex {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping of content */
+  align-items: center; /* Vertically center content in flex container */
+}
+.table .d-flex img {
+  max-height: 100px;
+  margin-right: 15px; /* Space between the image and title */
+}
+.table .d-flex .ml-3 {
+  flex: 1;
+}
 /* Responsive Layout Adjustments */
 @media (max-width: 768px) {
   .header-container h1 {
