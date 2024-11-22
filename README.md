@@ -822,3 +822,13 @@ The local version of the project and the live version on Heroku are quite simila
 | [Code Institute](https://github.com/Code-Institute-Org/ci-full-template) | gitpod setup | Gitpod Template |
 
 
+### Media
+
+| Source | Location | Type | Notes |
+| --- | --- | --- | --- |
+| [DALL·E](https://openai.com/index/dall-e-3/) | entire site | image.jpeg | image placeholder |
+| [Flavicon](https://favicon.io/) | entire site | image.ico | Coverted Logo to Flavicon |
+| [Amazon](https://www.amazon.co.uk/) | product page | images | scraped dataset products |
+| [Pexels](https://www.pexels.com/video/a-crowd-of-people-inside-a-shopping-mall-3243946/) | home page | mp4 | welcome call to action - holiday shoppers at the mall |
+| [simpleicons](https://simpleicons.org/) | Readme | slugs | Readme - Shield.IO Logos |
+
