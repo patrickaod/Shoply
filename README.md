@@ -273,3 +273,74 @@ I've implemented them as CSS `:root` variables to easily update the global colou
 ![Register](documentation/features/register.png)
 ![Sign In](documentation/features/sign_in.png)
 ![Sign Out](documentation/features/sign_out.png)
+### Developer Features
+
+**Kaggle Data Pipeline**
+
+This pipeline consists of three programs designed to download, process, and convert Kaggle datasets. The first command handles downloading datasets from Kaggle, the second processes and filters the dataset according to user preferences, and the third converts the processed data into a structured JSON format suitable for Django fixtures.
+
+**`kaggle_api_handler`**
+
+Downloads and organizes datasets from Kaggle by authenticating with the Kaggle API and saving them to a local directory.
+
+ - Dataset URL input: The user provides the last part of the Kaggle dataset URL to specify which dataset to download.
+ - Kaggle authentication: Uses credentials stored in environment variables (KAGGLE_USERNAME and KAGGLE_KEY) for API authentication.
+ - Folder creation: Ensures that the necessary directory (data/raw/) exists and creates it if missing.
+ - Error handling: Extensive error logging for missing credentials, download failures, and invalid inputs.
+ - Progress logging: Provides detailed logs at each step to track the process, from authentication to successful download.
+
+**`dataset_processor`**
+
+Filters and samples a CSV dataset based on user input and saves the processed data to a new CSV file with a timestamp.
+
+ - User inputs: The program prompts the user for the file to process, the header to filter by, elements to sample, and the number of samples per category.
+ - Error handling: Handles issues like missing headers, invalid sample sizes, and issues during CSV loading.
+ - Data filtering: Filters the dataset based on selected categories or elements from the chosen header column.
+ - Data sampling: Allows for both random sampling or taking the first n entries for each element in the dataset.
+ - Processed file saving: Saves the processed data to data/processed/ with a timestamped filename to avoid overwriting.
+
+**`csv_to_json_converter`**
+
+Converts a CSV file into a JSON format suitable for Django fixtures, with a replacement timestamp added to the filename for uniqueness.
+
+ - User input: The user provides the path to the processed CSV file that they want to convert into JSON.
+ - Timestamp handling: Automatically adds or replaces a timestamp in the filename to ensure the new file name is unique.
+ - CSV to JSON conversion: Reads the CSV file, converts it into a structured JSON format suitable for Django models, and saves it to data/json/.
+ - Error handling: Catches issues like invalid CSV format and JSON writing errors.
+ - Logging: Provides logs for each step, including file processing, conversion, and saving to ensure transparency.
+
+**`Loggers`**
+
+Loggers are a great way for developers to track their projects in real-time. Providing valuable insights into the development process.
+
+```py
+LOGGING = {
+    'version': 1,  # Use version 1 for Django logging configuration
+    'disable_existing_loggers': False,  # Keeps the default Django loggers enabled
+    'formatters': {
+        'verbose': {  # Defines a format for more detailed logging output
+        },
+        'simple': {  # Simpler format for quick debugging
+        },
+    },
+    'handlers': {
+        'console': {  # Console handler to output logs to the terminal    
+        },
+        'file': {  # File handler to write logs to a file
+        },
+    },
+    'loggers': {
+        '': {  # Root logger - captures all logs
+        },
+        'django': {  # Logger specifically for Django logs
+        },
+        'django.request': {  # Logger specifically for HTTP request logs
+        },
+        'shoply': {  # Custom logger you can use in your applications
+            'handlers': ['console', 'file'],
+            'level': 'DEBUG',  # Set lower for detailed logs when debugging
+            'propagate': False,
+        },
+    },
+}
+```
