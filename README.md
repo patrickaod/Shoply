@@ -788,3 +788,8 @@ You can fork this repository by using the following steps:
 1. Log in to GitHub and locate the [GitHub Repository](https://github.com/patrickaod/Shoply)
 2. At the top of the Repository (not top of page) just above the "Settings" Button on the menu, locate the "Fork" Button.
 3. Once clicked, you should now have a copy of the original repository in your own GitHub account!
+
+### Local VS Deployment
+
+The local version of the project and the live version on Heroku are quite similar, but there are some differences. Locally, images are stored on the server, while on Heroku, they are fetched from pre-hosted URLs and temporarily stored using WhiteNoise. The local environment uses simpler settings, while Heroku uses configurations designed for production. Performance and storage also differ, with Heroku optimized for handling larger amounts of data. Overall, both versions work the same, but future updates on Heroku may focus on improving scalability.
+
