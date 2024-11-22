@@ -43,9 +43,9 @@
                 {% endif %}
                 {% if request.user.is_superuser %}
                 <small class="ml-3">
-                    <a href="{% url 'edit_product' product.id %}">Edit</a> |
+                    <a href="{% url 'edit_product' product.id %}" class="edit-link ms-1">Edit</a> |
                     <!-- Button trigger modal -->
-                    <span data-bs-toggle="modal" class="text-danger" data-bs-target="#confirmDeleteModal{{product.id}}">
+                    <span data-bs-toggle="modal" class="text-danger delete-link" data-bs-target="#confirmDeleteModal{{product.id}}">
                         Delete
                     </span>
                 </small>
