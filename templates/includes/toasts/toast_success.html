@@ -1,3 +1,4 @@
+{% load static %}
 <div class="toast custom-toast rounded-0 border-top-0" data-autohide="false">
     <div class="arrow-up arrow-success"></div>
     <div class="w-100 toast-capper bg-success"></div>
@@ -21,9 +22,9 @@
                     <div class="row">
                         <div class="col-3 my-1">
                             {% if item.product.imgUrl %}
-                            <img class="w-100" src="{{ item.product.imgUrl }}" alt="{{ item.product.title }}" onError="this.onerror=null;this.src='{{ MEDIA_URL }}no_image.jpeg';">
+                            <img class="w-100" src="{{ item.product.imgUrl }}" alt="{{ item.product.title }}" onError="this.onerror=null;this.src='{% static 'img/no_image.jpeg' %}';">
                             {% else %}
-                            <img class="w-100" src="{{ MEDIA_URL }}no_image.jpeg" alt="{{ item.product.title }}">
+                            <img class="w-100" src="{% static 'img/no_image.jpeg' %}" alt="{{ item.product.title }}">
                             {% endif %}
                         </div>
                         <div class="col-9">
