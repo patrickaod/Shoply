@@ -26,7 +26,7 @@ def index(request):
     # Randomly sample up to 5 recently viewed products
     recently_viewed_sample = random.sample(
         list(recently_viewed_products),
-        min(len(recently_viewed_products), 5)
+        min(len(recently_viewed_products), 4)
     )
 
     context = {
