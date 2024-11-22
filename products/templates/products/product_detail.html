@@ -32,12 +32,12 @@
                 {% if product.categoryName %}
                 <p class="small mt-1 mb-0">
                     <a class="text-muted" href="{% url 'products' %}?categoryName={{ product.categoryName.title }}">
-                        <i class="fas fa-tag mr-1"></i>{{ product.categoryName.title }}
+                        <i class="fa-solid fa-tag"></i>{{ product.categoryName.title }}
                     </a>
                 </p>
                 {% endif %}
                 {% if product.stars %}
-                <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.stars }} / 5</small>
+                <small class="text-muted"><i class="fa-solid fa-star mr-1"></i>{{ product.stars }} / 5</small>
                 {% else %}
                 <small class="text-muted">No Rating</small>
                 {% endif %}
@@ -64,7 +64,7 @@
                                         <button class="decrement-qty btn btn-black rounded-0"
                                             data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
                                             <span class="icon">
-                                                <i class="fas fa-minus"></i>
+                                                <i class="fa-solid fa-minus"></i>
                                             </span>
                                         </button>
                                     </div>
@@ -74,7 +74,7 @@
                                         <button class="increment-qty btn btn-black rounded-0"
                                             data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
                                             <span class="icon">
-                                                <i class="fas fa-plus"></i>
+                                                <i class="fa-solid fa-plus"></i>
                                             </span>
                                         </button>
                                     </div>
@@ -84,7 +84,7 @@
                         <div class="col">
                             <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 mt-5 p-hover">
                                 <span class="icon">
-                                    <i class="fas fa-chevron-left"></i>
+                                    <i class="fa-solid fa-chevron-left"></i>
                                 </span>
                                 <span class="text-uppercase ">Keep Shopping</span>
                             </a>
