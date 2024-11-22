@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 class Product(models.Model):
     # ASIN (Amazon Standard Identification Number)
@@ -14,8 +15,11 @@ class Product(models.Model):
     productURL = models.URLField(max_length=200)
     
     # Rating of the product (e.g., stars out of 5)
-    stars = models.DecimalField(max_digits=2, decimal_places=1, null=True, blank=True)
-    
+    stars = models.DecimalField(
+        max_digits=2, decimal_places=1, null=True, blank=True, 
+        validators=[MinValueValidator(0.0), MaxValueValidator(5.0)]
+    )
+
     # Number of reviews for the product
     reviews = models.IntegerField(null=True, blank=True)
     
