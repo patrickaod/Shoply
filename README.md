@@ -19,3 +19,56 @@ Core features include:
 - Interactive Features: Enhanced accessability, interactivity and usability with [jQuery](https://jquery.com/).
 
 ![amIresponsive](documentation/overview/shoply_amiResponsive.png)
+
+## UX
+
+I built Shoply around datasets that I downloaded and processed through my custom data pipeline, using the insights they provided to shape every aspect of the website. By allowing the data to guide the design, I created a platform that’s not only clear and responsive but also deeply engaging for users. Features like "Recently Viewed" and "Top Trending" are powered directly by user behavior and sales data, creating a personalized experience that keeps customers coming back. The dynamic admin interface makes managing product listings effortless, while the navigation automatically adjusts to category changes with liquid formatting, ensuring a smooth and intuitive browsing experience. To further enhance the platform's appeal, I incorporated a unique logo, crafted using DALL·E, giving Shoply a fresh, modern identity that stands out.
+
+### Colour Scheme
+I first leveraged [DALL·E](https://openai.com/index/dall-e-3/) to generate an original and distinctive no-image found .jpeg that aligned with the modern aesthetic I wanted for the platform. 
+
+![Shoply no_image found jpeg](static/img/no_image.jpeg)
+
+After obtaining the image from [DALL·E](https://openai.com/index/dall-e-3/), I used [pixlr](https://pixlr.com/express/) (a free photo editing suite) to crop out the site’s logo and isolate it for integration into the design. 
+
+![Shoply Logo](static/img/shoply_logo.png)
+
+Next, I turned to [Coolors](https://coolors.co/), a color palette generator, to select a cohesive color scheme that would complement the logo and enhance the overall aesthetic of the site. After experimenting with various options, chose a color palette that balances cool blues and warm accents to evoke a sense of trust, professionalism, and approachability.
+
+#### Colour Scheme Extraction
+![Colour Scheme Extraction](documentation/ux/colour_scheme_extraction.png)
+#### Final Colour Scheme
+![Final Colour Scheme](documentation/ux/colour_scheme.png)
+- Kepple: `#3FB2A5` used for primary text
+- Dark Green: `#043A30` used for secondary text
+- Honeydew: `#D0EFDF` used for neutral tones
+- Black: `#000000` used for dark text
+- Gamboge: `#f39c12` used for contrasting accents
+
+I've implemented them as CSS `:root` variables to easily update the global colour scheme by changing only one value, instead of everywhere in the CSS file.
+
+```css
+:root {
+  /* Light Green */
+  --primary-color: #3FB2A5;
+  /* Dark Green */
+  --secondary-color: #043A30;
+  /* Off-White / Light Mint */
+  --neutral-light: #D0EFDF;
+  /* Black */
+  --text-dark: #000000;
+  /* Orange */
+  --accent-color: #f39c12;
+}
+```
+
+### Typography
+
+- [Poppins](https://fonts.google.com/specimen/Poppins) was used for the primary headers and titles.
+
+- [Roboto](https://fonts.google.com/specimen/Roboto) was used for all other secondary text.
+
+- [Pacifico](https://fonts.google.com/specimen/Pacifico) was used for the accent text.
+
+- [Font Awesome](https://fontawesome.com) icons were used throughout the site, such as the account and basket icons in the navigation.
+
