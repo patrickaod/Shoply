@@ -98,3 +98,178 @@ I've implemented them as CSS `:root` variables to easily update the global colou
 - As a site administrator, I should be able to modify profiles, so that I can maintain site security.
 - As a site administrator, I should be able to see all products, so that I can check site inventory.
 - As a site administrator, I should be able to see change products, so that I can update site inventory.
+## Features
+
+### Existing Features
+
+- **Logo Brand**
+
+    - The logo and brand name provide a easy site wide return to home familiar to all regular internet users.
+
+![Logo Brand](documentation/features/logo_brand.png)
+
+- **Categories Dropdown**
+
+    - The Categories Dropdown dynamically updates depending what data has been uploaded with the field `categoryName`. 
+
+![Categories Dropdown](documentation/features/categories.png)
+
+- **Search Bar**
+
+    - The search bar allows users to quickly narrow the products selection by title or category.
+
+![Search Bar](documentation/features/search.png)
+
+- **Profile Icon**
+
+    - The fontawesome [user icon](https://fontawesome.com/icons/user?f=classic&s=solid) dynamically displays options depending on session status. 
+
+![Profile Icon](documentation/features/user_reg.png)
+![Profile Icon](documentation/features/user_admin.png)
+![Profile Icon](documentation/features/login.png)
+
+- **Shopping Bag - Basket Icon**
+
+    - The shopping bag is accessed site wide through the navigation's fontawesome [basket icon](https://fontawesome.com/icons/basket-shopping?s=solid)
+
+![Shopping Bag](documentation/features/basket.png)
+
+- **Welcome - Call To Action**
+
+    - Upon arrival the user/shopper is greeted by a busy festive shoppers creating a sense of motion. A big call to action is centered in frosted glass (`The new collections are here`) in Poppins font next to another bright Gamboge orange call to action button with more festive features 🎄. 
+
+![Welcome - Call To Action](documentation/features/welcome.png)
+
+- **Trending Now**
+
+    - The trending now feature looks for items with the `isBestSeller` field and places a random selection using the [random module](https://docs.python.org/3/library/random.html) on a users homescreen.
+
+```py 
+# Get all bestseller products
+    bestseller_products = list(Product.objects.filter(isBestSeller=True))
+    # Shuffle and pick up to 5
+    trending_products = random.sample(bestseller_products, min(len(bestseller_products), 5))
+
+```
+![Trending Now](documentation/features/trending.png)
+
+- **Recently Viewed**
+
+    - A random selection of up to 5 recently viewed items will be displayed here, sourced from cookies for anonymous users and from the database for account holders.
+
+```py
+# Fetch recently viewed products
+    recently_viewed_products = []
+    if request.user.is_authenticated:
+        # For logged-in users: fetch from the database
+        recent_views = RecentlyViewedProduct.objects.filter(user=request.user).select_related('product')[:10]
+        recently_viewed_products = [view.product for view in recent_views]
+    else:
+        # For anonymous users: fetch from session
+        recently_viewed_ids = request.session.get('recently_viewed', [])
+        recently_viewed_products = Product.objects.filter(id__in=recently_viewed_ids)
+
+    # Randomly sample up to 5 recently viewed products
+    recently_viewed_sample = random.sample(
+        list(recently_viewed_products),
+        min(len(recently_viewed_products), 5)
+    )
+```
+![Recently Viewed](documentation/features/recently.png)
+
+- **Price Tag**
+
+    - The updates dynamically according to the items price listed in the database. 
+
+![Price Tag](documentation/features/price_tag.png)
+
+- **Products**
+
+    - The products section utilises using bootstraps helper classes to responively layout all the desired product cards.
+
+![Products](documentation/features/products.png)
+
+- **Product Cards**
+
+    - The product card provides a quick snapshot of the product, displaying only the truncated title and price for simplicity. It includes a subtle hover effect, elevating the card to offer visual feedback to the user. A vibrant gamboge-orange 'View [More] Details' button adds an eye-catching call-to-action.
+
+![Product Cards](documentation/features/product_card.png)
+
+- **Pagination**
+
+    - Pagination improves user experience by breaking down large sets of data into manageable chunks. It also enhances performance by loading only a portion of the data at a time.
+
+![Pagination](documentation/features/pagination.png)
+
+- **Product Details**
+
+    - The Product Details page provides an in-depth view of the product in a clean and user-friendly layout. A large image on the left expands for a closer look, while all the product details are prominently displayed in a section directly beside it. The title is fully visible (untruncated), and the page includes a quantity selector and direct links for seamless navigation back to related products or all products.
+
+![Product Details](documentation/features/product_details.png)
+
+- **Server Messages**
+
+    - Server messages provide users with real-time feedback about their actions, enhancing clarity and ensuring a smoother, more informed user experience.
+
+![Server Messages](documentation/features/messages.png)
+
+- **User Profile**
+
+    - User profiles provide customers with convenient access to delivery information and their order history.
+
+![User Profile](documentation/features/user_profile.png)
+
+- **Admin Profile**
+
+    - The admin profile enables administrators to add products to the site via the Website Management link, with room for future feature expansion.
+
+![Admin Profile](documentation/features/admin_profile.png)
+
+- The admin profile allows administrators to edit or delete products directly from the product cards for easy management.
+
+![Admin Product Options](documentation/features/admin_options.png)
+
+- **Shopping Bag**
+
+    - The shopping bag benefits the user by providing an intuitive, interactive shopping bag interface where they can easily view and manage their selected items, adjust quantities, or remove products. The page also includes a convenient "Continue Shopping" button, allowing users to easily return to browsing.
+
+![Shopping Bag](documentation/features/shopping_bag.png)
+
+- **Shopping Summmary**
+
+    - Additionally, the shopping bag offers a clear breakdown of costs, including delivery fees and free delivery eligibility, ensuring a smooth and informed checkout process.
+
+![Shopping Summmary](documentation/features/shopping_summary.png)
+
+- **Stripe Checkout**
+
+    - The checkout benefits the user by providing a streamlined checkout process with a clear order summary, secure payment integration, and the ability to easily amend thier delivery address.
+
+![Stripe Checkout](documentation/features/checkout.png)
+
+- **Checkout Spinner**
+
+    - The checkout spinner provides users with a visual cue that their payment is being processed, ensuring they know the system is working on their order.
+
+![Checkout Spinner](documentation/features/spinner.png)
+
+- **Checkout Success**
+
+    - This page benefits the user by providing a clear and detailed order confirmation. It also offers convenient options for users to either return to browsing the website.
+
+![Checkout Success](documentation/features/checkout_success.png)
+
+- **Confirmation Email**
+
+    - The dedicated email system allows for future expansion, starting with order confirmations and paving the way for additional notifications and updates.
+
+![Confirmation Email](documentation/features/emails.png)
+
+
+- **Sign Up, Sign In, Sign Out**
+
+    - The sign-in, sign-out, and registration allauth forms provide a seamless user experience, allowing easy access, secure logout, and the ability to create new accounts, with future scalability for additional user features.
+
+![Register](documentation/features/register.png)
+![Sign In](documentation/features/sign_in.png)
+![Sign Out](documentation/features/sign_out.png)
