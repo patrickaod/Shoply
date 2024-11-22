@@ -793,3 +793,32 @@ You can fork this repository by using the following steps:
 
 The local version of the project and the live version on Heroku are quite similar, but there are some differences. Locally, images are stored on the server, while on Heroku, they are fetched from pre-hosted URLs and temporarily stored using WhiteNoise. The local environment uses simpler settings, while Heroku uses configurations designed for production. Performance and storage also differ, with Heroku optimized for handling larger amounts of data. Overall, both versions work the same, but future updates on Heroku may focus on improving scalability.
 
+## Credits
+
+### Content
+
+| Source | Location | Notes |
+| --- | --- | --- |
+| [Markdown Builder](https://tim.2bn.dev/markdown-builder) | README and TESTING | tool to help generate the Markdown files |
+| [Chris Beams](https://chris.beams.io/posts/git-commit) | version control | "How to Write a Git Commit Message" |
+| [Django 5.1](https://docs.djangoproject.com/en/5.1/ref/settings/) | entire site | Project Middleware configuration |
+| [Django 5.1](https://docs.djangoproject.com/en/5.1/howto/custom-management-commands/) | Development environment | Data Pipeline - Call method|
+| [Python](https://docs.python.org/3/library/pathlib.html) | Development environment | Data Pipeline - Understanding Path manipulaiton |
+| [Python](https://docs.python.org/3/library/csv.html) | Development environment | Data Pipeline - Understanding cvs files |
+| [Kaggle](https://www.kaggle.com/docs/api) | Development environment | Data Pipeline - Understanding Api integration |
+| [Python](https://docs.python.org/3/library/datetime.html) | Development environment | Data Pipeline & Loggers - Understanding data-time formating|
+| [W3Schools](https://www.w3schools.com/python/pandas/default.asp) | Development environment | Data Pipeline - Data Manipulation |
+| [Pandas](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.sample.html#pandas.core.groupby.DataFrameGroupBy.sample) | Development environment | Data Pipeline - Data Sampling|
+| [Python](https://docs.python.org/3/library/re.html) | Development environment | Data Pipeline - Understanding Regular expressions |
+| [Django 5.1](https://docs.djangoproject.com/en/5.1/howto/custom-management-commands/) | Development environment | Logging |
+| [Python](https://docs.python.org/3/library/logging.html) | Development environment | Loggers |
+| [Allauth](https://docs.allauth.org/en/latest/) | Entire Site | Authentication configuration |
+| [Django 5.1](https://docs.djangoproject.com/en/5.1/ref/templates/api/) | Site data transfers | Understanding context processors |
+| [Bootstrap 5](https://getbootstrap.com/docs/5.0/components/navbar/) | entire site | navbar |
+| [Bootstrap 5](https://getbootstrap.com/docs/5.0/components/tooltips/) | entire site | popper tooltips |
+| [W3Schools](https://www.w3schools.com/css/css3_variables.asp) | entire site | Creating css variables|
+| [WhiteNoise](http://whitenoise.evans.io) | entire site | hosting static files on Heroku temporarily |
+| [Code Institute](https://codeinstitute.net/) | entire site | Advice & Guidance |
+| [Code Institute](https://github.com/Code-Institute-Org/ci-full-template) | gitpod setup | Gitpod Template |
+
+
