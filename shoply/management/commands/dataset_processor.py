@@ -5,7 +5,6 @@ from datetime import datetime
 import os
 import pandas as pd
 import logging
-import random
 
 # Use the custom 'shoply' logger for application-specific logging
 logger = logging.getLogger('shoply')
