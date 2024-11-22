@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load bag_tools %}
+{% load static %}
 
 {% block content %}
 <div class="container my-5">
@@ -8,7 +9,7 @@
     {% if bag_items %}
     <div class="row">
         <!-- Bag Items -->
-        <div class="col-12">
+        <div class="col-12 table-responsive">
             <table class="table">
                 <thead>
                     <tr>
@@ -25,9 +26,9 @@
                         <td>
                             <div class="d-flex">
                                 {% if item.product.imgUrl %}
-                                <img src="{{ item.product.imgUrl }}" alt="{{ item.product.title }}" class="img-thumbnail img-fluid" style="max-height: 100px;" onError="this.onerror=null;this.src='{{ MEDIA_URL }}no_image.jpeg';">
+                                <img src="{{ item.product.imgUrl }}" alt="{{ item.product.title }}" class="img-thumbnail img-fluid" style="max-height: 100px;" onError="this.onerror=null;this.src='{% static 'img/no_image.jpeg' %}';">
                                 {% else %}
-                                <img src="{{ MEDIA_URL }}no_image.jpeg" alt="{{ item.product.title }}" class="img-thumbnail img-fluid" style="max-height: 100px;">
+                                <img src="{% static 'img/no_image.jpeg' %}" alt="{{ item.product.title }}" class="img-thumbnail img-fluid" style="max-height: 100px;">
                                 {% endif %}
                                 <div class="ml-3">
                                     <h5>{{ item.product.title }}</h5>
@@ -64,7 +65,7 @@
         <div class="col-12 col-md-6">
             <div class="card">
                 <div class="card-body">
-                    <h4>Bag Summary</h4>
+                    <h4 class="accent-text">Bag Summary</h4>
                     <p><strong>Subtotal:</strong> ${{ total }}</p>
                     <p><strong>Delivery:</strong> ${{ delivery | floatformat:2 }}</p>
                     <p><strong>Free Delivery Threshold:</strong> ${{ free_delivery_threshold }}</p>
@@ -78,7 +79,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-md-6 m-3">
             <a href="{% url 'products' %}" class="btn btn-outline-primary">Continue Shopping</a>
         </div>
     </div>
