@@ -832,3 +832,10 @@ The local version of the project and the live version on Heroku are quite simila
 | [Pexels](https://www.pexels.com/video/a-crowd-of-people-inside-a-shopping-mall-3243946/) | home page | mp4 | welcome call to action - holiday shoppers at the mall |
 | [simpleicons](https://simpleicons.org/) | Readme | slugs | Readme - Shield.IO Logos |
 
+### Acknowledgements
+
+- I would like to thank my Code Institute mentor, [Tim Nelson](https://github.com/TravelTimN) for his support throughout the development of this project.
+- I would like to thank the [Code Institute](https://codeinstitute.net) tutor team for their assistance with troubleshooting and debugging some project issues.
+- I would like to thank the [Code Institute Slack community](https://code-institute-room.slack.com) for the moral support; it kept me going during periods of self doubt and impostor syndrome.
+- I would like to thank my partner Eva <3, for believing in me, and allowing me to make this transition into software development.
+- I would like to thank my employer, for supporting me in my career development change towards becoming a software developer.
