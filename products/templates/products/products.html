@@ -15,8 +15,8 @@
 
 {% block content %}
 <div class="container my-4">
-  {% if categoryName %}
-  <h1 class="text-center mb-4">{{ categoryName }}</h1>
+  {% if selected_category %}
+  <h1 class="text-center mb-4">{{ selected_category }}</h1>
   {% else %}
   <h1 class="text-center mb-4">Products</h1>
   {% endif %}
@@ -25,7 +25,7 @@
     <div class="col">
       <div class="card product-card h-100">
         <img src="{{ product.imgUrl }}" class="card-img-top" alt="{{ product.title }}"
-          onError="this.onerror=null;this.src='{{ MEDIA_URL }}no_image.jpeg';">
+          onError="this.onerror=null;this.src='{% static 'img/no_image.jpeg' %}';">
         <div class="card-body">
           <h2 class="card-title">{{ product.title }}</h2>
           <p class="card-text">${{ product.price }}</p>
