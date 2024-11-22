@@ -344,3 +344,22 @@ LOGGING = {
     },
 }
 ```
+### Future Features
+
+- Persoanlised Recommendations 
+    - Upgrade the user_activity application with AI features, heatmaps and session recording, funnel and behavioral analysis.
+- Advanced Stripe functionality 
+    - Subscriptions to services like "Prime", Better card detail saving, or advanced fraud protections.
+- Customer Review & Ratings
+    - Written review from verified customers would add to buyer's confidence. 
+- Social Media Integration
+    - Allows customers to log in, share products, or purchase directly from social media platforms like Instagram or Facebook.
+- Open the Marketplace
+    - Create an open marketplace like Gumtree or Facebook Marketplace
+- Improve Data Pipeline
+    - The intergration of large dataset could be refined further with a dashboard to analysis and further customise the filtering process. 
+- Dynamic Pricing 
+    - Adjusts product pricing based on factors such as demand, competition, or customer loyalty
+- Modular Implementation
+    - Develop a dynamic website that allows deals to be easily created, uploaded, and automatically displayed in designated sections. The goal is to minimize maintenance while maximizing user engagement through seamless content management and real-time updates.
+
