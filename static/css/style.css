@@ -283,23 +283,23 @@ p {
 }
 
 /* Styling for the Edit link */
-.product-actions .edit-link {
+.edit-link {
   text-decoration: none; /* Remove underline */
   color: #007bff; /* Blue color for the edit link */
 }
 
-.product-actions .edit-link:hover {
+.edit-link:hover {
   color: #0056b3; /* Darker blue on hover */
   text-decoration: underline; /* Underline on hover */
 }
 
 /* Styling for the Delete link */
-.product-actions .delete-link {
+.delete-link {
   cursor: pointer; /* Pointer cursor for delete */
   color: #dc3545; /* Red color for delete link */
 }
 
-.product-actions .delete-link:hover {
+.delete-link:hover {
   color: #c82333; /* Darker red on hover */
   text-decoration: underline; /* Underline on hover */
 }
@@ -328,6 +328,10 @@ p {
   font-size: 1.25rem;
   font-weight: 400;
   color: #000;
+}
+
+small span {
+  cursor: pointer;
 }
 
 
