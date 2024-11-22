@@ -395,3 +395,61 @@ LOGGING = {
 - [![FreeConvert](https://img.shields.io/badge/FreeConvert-grey?logo=freebsd&logoColor=FF5722)](https://www.freeconvert.com/) used to reduce video size.
 - [![Grammarly](https://img.shields.io/badge/Grammarly-grey?logo=grammarly&logoColor=00A4CC)](https://www.grammarly.com/) used for proofing.
 
+## Database Design
+
+Entity Relationship Diagrams (ERD) help to visualize database architecture before creating models.
+Understanding the relationships between different tables can save time later in the project.
+
+```python
+class Product(models.Model):
+    # ASIN (Amazon Standard Identification Number)
+    asin = models.CharField(max_length=100, unique=True)
+    # Product title
+    title = models.CharField(max_length=255)
+    # Image URL (URL to the product image)
+    imgUrl = models.URLField(max_length=200)
+    # Product URL (URL to the product page)
+    productURL = models.URLField(max_length=200)
+    # Rating of the product (e.g., stars out of 5)
+    stars = models.DecimalField(
+        max_digits=2, decimal_places=1, null=True, blank=True, 
+        validators=[MinValueValidator(0.0), MaxValueValidator(5.0)]
+    )
+    # Number of reviews for the product
+    reviews = models.IntegerField(null=True, blank=True)
+    # Price of the product
+    price = models.DecimalField(max_digits=10, decimal_places=2, null=False, blank=False)
+    # Whether or not the product is a bestseller
+    isBestSeller = models.BooleanField(default=False)
+    # Whether the product was bought in the last month
+    boughtInLastMonth = models.BooleanField(default=False)
+    # Category of the product (e.g., Electronics, Clothing, etc.)
+    categoryName = models.CharField(max_length=100)
+    def __str__(self):
+        return self.title
+```
+
+I have used `pygraphviz` and `django-extensions` to auto-generate an ERD.
+
+The steps taken were as follows:
+- In the terminal: `sudo apt update`
+- then: `sudo apt-get install python3-dev graphviz libgraphviz-dev pkg-config`
+- then type `Y` to proceed
+- then: `pip3 install django-extensions pygraphviz`
+- in my `settings.py` file, I added the following to my `INSTALLED_APPS`:
+```python
+INSTALLED_APPS = [
+    ...
+    'django_extensions',
+    ...
+]
+```
+- back in the terminal: `python3 manage.py graph_models -a -o erd.png`
+- dragged the new `erd.png` file into my `documentation/` folder
+- removed `'django_extensions',` from my `INSTALLED_APPS`
+- finally, in the terminal: `pip3 uninstall django-extensions pygraphviz -y`
+
+![erd](documentation/ERD/erd.png)
+source: [medium.com](https://medium.com/@yathomasi1/1-using-django-extensions-to-visualize-the-database-diagram-in-django-application-c5fa7e710e16)
+
+
