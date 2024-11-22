@@ -13,7 +13,7 @@
 <!-- Shop Now - Hero Section -->
 <div class="shop-now-section">
     <video id="background-video" autoplay muted class="background-video">
-        <source src="{% static 'vid/shop.mp4' %}" type="video/mp4">
+        <source src="{% static 'vid/westfield_mall.mp4' %}" type="video/mp4">
         Your browser does not support the video tag.
     </video>
     
@@ -38,7 +38,7 @@
             {% for product in trending_products %}
             <a href="{% url 'product_detail' product.id %}">
                 <div class="trending-product mx-2 my-2">
-                    <img src="{{ product.imgUrl }}" alt="{{ product.title }}" class="circle-image" onError="this.onerror=null;this.src='{{ MEDIA_URL }}no_image.jpeg';">
+                    <img src="{{ product.imgUrl }}" alt="{{ product.title }}" class="circle-image" onError="this.onerror=null;this.src='{% static 'img/no_image.jpeg' %}';">
                 </div>
             </a>
             {% empty %}
@@ -48,17 +48,17 @@
     </div>
 </div>
 <!-- Recently Views Items - Responsive Grid -->
-<div class="col-12 text-center mb-4"></div>
+<div class="col-12 text-center mb-4">
 <h3 class="recently-viewed-title">Recently Viewed</h3>
 </div>
-<div class="container-fluid">
-    <div class="row">
+<div class="container-fluid mx-auto">
+    <div class="row mx-auto">
         {% if recently_viewed_products %}
         {% for product in recently_viewed_products %}
-        <div class="col-6 col-md-4 col-lg-3 col-xl-2 mb-3 position-relative square-product">
+        <div class="col-6 col-md-3 mb-3 position-relative square-product">
             <a href="{% url 'product_detail' product.id %}">
                 <div class="card h-100">
-                    <img src="{{ product.imgUrl }}" class="card-img-top square-image" alt="{{ product.title }}" onError="this.onerror=null;this.src='{{ MEDIA_URL }}no_image.jpeg';">
+                    <img src="{{ product.imgUrl }}" class="card-img-top square-image" alt="{{ product.title }}" onError="this.onerror=null;this.src='{% static 'img/no_image.jpeg' %}';">
                     <!-- Price Badge at Bottom Left -->
                     <div class="price-badge">
                         ${{ product.price }}
