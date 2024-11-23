@@ -84,6 +84,10 @@ p {
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
 }
+#searchInput2 {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
 /* End section - User Icons */
 .user-icon{
   font-size: 25px;
