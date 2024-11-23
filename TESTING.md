@@ -21,3 +21,13 @@ I have used the recommended [HTML W3C Validator](https://validator.w3.org) to va
 | products | products.html | ![screenshot](documentation/html_validation/prod_val.png) | |
 | user profile | profile.html | ![screenshot](documentation/html_validation/user_profile.png) | |
 
+### CSS
+
+I have used the recommended [CSS Jigsaw Validator](https://jigsaw.w3.org/css-validator) to validate all of my CSS files.
+
+| Directory | File | Screenshot | Notes |
+| --- | --- | --- | --- |
+| checkout | checkout.css | ![screenshot](documentation/css_validation/checkout_css_val.png) | |
+| profiles | profile.css | ![screenshot](documentation/css_validation/profile_css_val.png) | |
+| static | style.css | ![screenshot](documentation/css_validation/style_css_val.png) | |
+
