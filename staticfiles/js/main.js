@@ -1,9 +1,9 @@
 /* jshint esversion: 11, jquery: true */ 
 // Initialize Bootstrap/Popper Tooltips
-let tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+let tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
 let tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-  return new bootstrap.Tooltip(tooltipTriggerEl)
-})
+  return new bootstrap.Tooltip(tooltipTriggerEl);
+});
 
 // Handle Video Autoplay for Prefer Reduced Motion
 document.addEventListener('DOMContentLoaded', function () {
