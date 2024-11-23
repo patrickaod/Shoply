@@ -123,3 +123,20 @@ After reviewing my Google Lighthouse results, I can see there’s room for impro
 | Checkout | ![screenshot](documentation/lighthouse/lh_checkout_mobile.png) | ![screenshot](documentation/lighthouse/lh_checkout_desktop.png) | Slow response time due to image rendering |
 
 
+## User Story Testing
+
+| User Story | Screenshot |
+| --- | --- |
+| As a shopper, I would like to view a list of products, so that I can select some to purchase. | ![screenshot](documentation/features/products.png) |
+| As a shopper, I would like to view specific categories, so that I can find something quickly. | ![screenshot](documentation/features/categories.png) |
+| As a shopper, I would like to select out a product, so that I focus on the product itself. | ![screenshot](documentation/features/product_details.png) |
+| As a new site user, I would like to easily login, so that I can access my information quickly. | ![screenshot](documentation/features/sign_in.png) |
+| As a new site user, I would like to easily register, so that I can view my personal profile. | ![screenshot](documentation/features/user_profile.png) |
+| As a new site user, I would like to recieve email confirmation, so that I can verify my purchase. | ![screenshot](documentation/features/checkout_success.png) |
+| As a returning site user, I would like to have my orders saved, so that I can review my purchases. | ![screenshot](documentation/features/user_profile.png) |
+| As a returning site user, I would like to quick access to products I've seen before, so that I don't have to write anything down. | ![screenshot](documentation/features/recently.png) |
+| As a returning site user, I would like to quickly see the most popular items, so that I can find some quick christmas gifts. | ![screenshot](documentation/features/trending.png) |
+| As a site administrator, I should be able to modify profiles, so that I can maintain site security. | ![screenshot](documentation/features/admin.png) |
+| As a site administrator, I should be able to see all products, so that I can check site inventory. | ![screenshot](documentation/features/admin.png) |
+| As a site administrator, I should be able to see change products, so that I can update site inventory. | ![screenshot](documentation/features/admin_options.png) |
+
