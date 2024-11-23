@@ -39,7 +39,7 @@ I have used the recommended [JShint Validator](https://jshint.com) to validate a
 | --- | --- | --- | --- |
 | checkout | stripe_elements.js | ![screenshot](documentation/js_validation/stripe_js_val.png) | |
 | profiles | countryfield.js | ![screenshot](documentation/js_validation/prof_js_val.png) | |
-| static | main.js | ![screenshot](documentation/js_validation/main_js_val.png) | The errors shown in this screenshot are related to the Bootstrap Tooltip JavaScript. For reference, I've included the official documentation here: Bootstrap Tooltip Documentation.|
+| static | main.js | ![screenshot](documentation/js_validation/main_js_val.png) | The errors shown in this screenshot are related to the Bootstrap Tooltip JavaScript. For reference, I've included the official documentation here: [Bootstrap Tooltip Documentation](https://getbootstrap.com/docs/5.0/components/tooltips/).|
 
 ### Python
 
