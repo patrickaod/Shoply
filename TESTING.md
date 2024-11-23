@@ -144,3 +144,17 @@ After reviewing my Google Lighthouse results, I can see there’s room for impro
 
 I fully acknowledge that automated testing would be an essential part of a comprehensive testing strategy in a real-world scenario. In this case, my testing approach has been more manual, focusing on key aspects of browser compatibility and user experience. 
 
+## Bugs
+
+- The HTML validator will show an error with the body tags if another tag is missing.
+
+    ![screenshot](documentation/bugs/validator.w3.org_nu_ (7).png)
+
+    - To fix this, I replacing the missing tag.
+
+- Python `E501 line too long` (93 > 79 characters)
+
+    ![screenshot](documentation/bugs/pep8ci.herokuapp.com_ (1).png)
+
+    - To fix this, I by re-oganising onto different lines or shortening phrasing.
+
