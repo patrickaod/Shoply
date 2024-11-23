@@ -164,13 +164,13 @@ I fully acknowledge that automated testing would be an essential part of a compr
 
 - The HTML validator will show an error with the body tags if another tag is missing.
 
-    ![screenshot](documentation/bugs/validator.w3.org_nu_ (7).png)
+    ![screenshot](documentation/bugs/html_tag_bug.png)
 
     - To fix this, I replacing the missing tag.
 
 - Python `E501 line too long` (93 > 79 characters)
 
-    ![screenshot](documentation/bugs/pep8ci.herokuapp.com_ (1).png)
+    ![screenshot](documentation/bugs/python_bug.png)
 
     - To fix this by re-oganising onto different lines or shortening phrasing.
 
@@ -182,7 +182,7 @@ I fully acknowledge that automated testing would be an essential part of a compr
 
 - There was a warning in the HTML validator about a possible misuse of the aria-label, but after checking, everything seemed fine. Fixing this would require reaching out to the W3C team, and since it’s just a warning and doesn’t appear to be an issue with my code, I decided to leave it for now.
 
-    ![screenshot](documentation/bugs/validator.w3.org_nu_ (6).png)
+    ![screenshot](documentation/bugs/misuse_bug.png)
 
 > [!NOTE]  
 > There are no remaining bugs that I am aware of.
