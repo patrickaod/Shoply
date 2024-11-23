@@ -98,6 +98,39 @@ I've implemented them as CSS `:root` variables to easily update the global colou
 - As a site administrator, I should be able to modify profiles, so that I can maintain site security.
 - As a site administrator, I should be able to see all products, so that I can check site inventory.
 - As a site administrator, I should be able to see change products, so that I can update site inventory.
+
+## Wireframes
+
+To follow best practice, wireframes were developed for mobile, tablet, and desktop sizes.
+I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wireframes.
+
+### Mobile Wireframes
+
+<details>
+<summary> Click here to see the Mobile Wireframes </summary>
+
+  ![screenshot](documentation/wireframe/mobile_wireframe.png)
+
+</details>
+
+### Tablet Wireframes
+
+<details>
+<summary> Click here to see the Tablet Wireframes </summary>
+
+  ![screenshot](documentation/wireframe/tablet_wireframe.png)
+
+</details>
+
+### Desktop Wireframes
+
+<details>
+<summary> Click here to see the Tablet Wireframes </summary>
+
+  ![screenshot](documentation/wireframe/desktop_wireframe.png)
+
+</details>
+
 ## Features
 
 ### Existing Features
@@ -273,6 +306,7 @@ I've implemented them as CSS `:root` variables to easily update the global colou
 ![Register](documentation/features/register.png)
 ![Sign In](documentation/features/sign_in.png)
 ![Sign Out](documentation/features/sign_out.png)
+
 ### Developer Features
 
 **Kaggle Data Pipeline**
@@ -344,6 +378,7 @@ LOGGING = {
     },
 }
 ```
+
 ### Future Features
 
 - Persoanlised Recommendations 
