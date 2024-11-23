@@ -54,11 +54,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'allauth', # required for 'allauth' functionality
-    'allauth.account', # required for 'allauth' account management
-    'allauth.socialaccount', # required for 'allauth' social media authentication
-    
-    #Project Applications
+    'allauth',  # required for 'allauth' functionality
+    'allauth.account',  # required for 'allauth' account management
+    'allauth.socialaccount',  # required for 'allauth' social media auth
+
+    # Project Applications
     'shoply',
     'home',
     'products',
@@ -67,7 +67,7 @@ INSTALLED_APPS = [
     'profiles',
     'user_activity',
 
-    #Other
+    # Other
     'crispy_forms',
     'crispy_bootstrap5',
 
@@ -82,7 +82,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    "allauth.account.middleware.AccountMiddleware", # Allauth account middleware
+    # Allauth account middleware
+    "allauth.account.middleware.AccountMiddleware",
 ]
 
 ROOT_URLCONF = 'shoply.urls'
@@ -102,12 +103,12 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                'django.template.context_processors.request', # required by allauth
+                'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
-                'products.contexts.categories_processor', # required by navbar category dropdown
-                'bag.contexts.bag_contents', # required for global bag access
+                'products.contexts.categories_processor',
+                'bag.contexts.bag_contents',
             ],
             'builtins': [
                 'crispy_forms.templatetags.crispy_forms_tags',
@@ -117,20 +118,20 @@ TEMPLATES = [
     },
 ]
 
-#Message Storing
+# Message Storing
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 AUTHENTICATION_BACKENDS = [
-    
+
     # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
 
     # `allauth` specific authentication methods, such as login by email
     'allauth.account.auth_backends.AuthenticationBackend',
-    
+
 ]
 
-# Allauth regular account configuration 
+# Allauth regular account configuration
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
@@ -163,19 +164,30 @@ else:
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': (
+            'django.contrib.auth.password_validation.'
+            'UserAttributeSimilarityValidator'
+        ),
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': (
+            'django.contrib.auth.password_validation.'
+            'MinimumLengthValidator'
+        ),
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': (
+            'django.contrib.auth.password_validation.'
+            'CommonPasswordValidator'
+        ),
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': (
+            'django.contrib.auth.password_validation.'
+            'NumericPasswordValidator'
+        ),
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
@@ -217,12 +229,12 @@ if not os.path.exists(LOGGING_DIR):
 # Loggers Configuration
 LOGGING = {
     'version': 1,  # Use version 1 for Django logging configuration
-    'disable_existing_loggers': False,  # Keeps the default Django loggers enabled
+    'disable_existing_loggers': False,  # Keeps the default Django loggers
     'formatters': {
         'verbose': {  # Defines a format for more detailed logging output
             'format': '[{asctime}] {levelname} {module}: {message}',
             'style': '{',  # Allows Python 3's `{}` string formatting
-            'datefmt': '%d/%m/%Y %H:%M:%S',  # UK-readable format: DD/MM/YYYY HH:MM:SS
+            'datefmt': '%d/%m/%Y %H:%M:%S',  # UK format: DD/MM/YYYY HH:MM:SS
         },
         'simple': {  # Simpler format for quick debugging
             'format': '{levelname}: {message}',
@@ -231,17 +243,17 @@ LOGGING = {
     },
     'handlers': {
         'console': {  # Console handler to output logs to the terminal
-            'level': 'DEBUG', # Capture all logs at set level and below
+            'level': 'DEBUG',  # Capture all logs at set level and below
             'class': 'logging.StreamHandler',
             'formatter': 'simple',  # Uses the 'simple' formatter defined above
         },
         'file': {  # File handler to write logs to a file
             'level': 'WARNING',  # Capture all logs at set level and above
             'class': 'logging.handlers.RotatingFileHandler',
-            'filename': os.path.join(BASE_DIR, 'logs/django.log'),  # Specify log file location
+            'filename': os.path.join(BASE_DIR, 'logs/django.log'),
             'maxBytes': 1024 * 1024 * 10,  # 10 MB
             'backupCount': 5,  # Keep 5 old log files
-            'formatter': 'verbose',  # Uses the 'verbose' formatter for detailed output
+            'formatter': 'verbose',
         },
     },
     'loggers': {
@@ -251,8 +263,8 @@ LOGGING = {
         },
         'django': {  # Logger specifically for Django logs
             'handlers': ['console', 'file'],
-            'level': 'INFO',  
-            'propagate': False,  # Prevents logs from propagating to the root logger
+            'level': 'INFO',
+            'propagate': False,  # Stops logs from propagating to the root
         },
         'django.request': {  # Logger specifically for HTTP request logs
             'handlers': ['file'],
@@ -293,4 +305,3 @@ else:
     EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
     EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
     DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
-

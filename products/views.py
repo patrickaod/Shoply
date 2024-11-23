@@ -7,9 +7,11 @@ from .forms import ProductForm
 from django.contrib import messages
 from user_activity.models import RecentlyViewedProduct
 
+
 def product_search(request):
     """
-    View for searching and filtering products based on category or search query.
+    View for searching and filtering products
+    based on category or search query.
     """
     # Base queryset
     products = Product.objects.all()
@@ -23,7 +25,10 @@ def product_search(request):
     if category:
         filters &= Q(categoryName=category)  # Filter by category
     if query:
-        filters &= Q(title__icontains=query) | Q(categoryName__icontains=query)  # Filter by title
+        filters &= (
+            Q(title__icontains=query) |
+            Q(categoryName__icontains=query)  # Filter by title
+        )
 
     # Fetch filtered products
     products = Product.objects.filter(filters)
@@ -39,6 +44,7 @@ def product_search(request):
         'search_query': query,
     }
     return render(request, 'products/products.html', context)
+
 
 def product_detail(request, product_id):
     """
@@ -68,6 +74,7 @@ def product_detail(request, product_id):
     }
     return render(request, 'products/product_detail.html', context)
 
+
 @login_required
 def add_product(request):
     """ Add a product to the store """
@@ -82,10 +89,13 @@ def add_product(request):
             messages.success(request, 'Successfully added product!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+            messages.error(
+                request,
+                'Failed to add product. Please ensure the form is valid.'
+            )
     else:
         form = ProductForm()
-        
+
     template = 'products/add_products.html'
     context = {
         'form': form,
@@ -109,7 +119,10 @@ def edit_product(request, product_id):
             messages.success(request, 'Successfully updated product!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Failed to update product. Please ensure the form is valid.')
+            messages.error(
+                request,
+                'Failed to update product. Please ensure the form is valid.'
+            )
     else:
         form = ProductForm(instance=product)
         messages.info(request, f'You are editing {product.title}')

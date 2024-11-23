@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import Product
 
+
 class ProductAdmin(admin.ModelAdmin):
     list_display = (
         'asin',
@@ -13,5 +14,6 @@ class ProductAdmin(admin.ModelAdmin):
     )
 
     ordering = ('title',)
-    
+
+
 admin.site.register(Product, ProductAdmin)
