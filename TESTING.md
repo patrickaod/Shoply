@@ -158,3 +158,15 @@ I fully acknowledge that automated testing would be an essential part of a compr
 
     - To fix this, I by re-oganising onto different lines or shortening phrasing.
 
+## Unfixed Bugs
+
+- There are two bugs in the JSHint linter that can’t be fixed because they’re tied to how Bootstrap is structured internally. These issues come from the code used to enable Popper.js tooltips, and fixing them would go beyond the scope of this project. For now, they’ve been noted and left to be addressed later.
+
+    ![screenshot](documentation/js_validation/main_js_val.png)
+
+- There was a warning in the HTML validator about a possible misuse of the aria-label, but after checking, everything seemed fine. Fixing this would require reaching out to the W3C team, and since it’s just a warning and doesn’t appear to be an issue with my code, I decided to leave it for now.
+
+    ![screenshot](documentation/bugs/validator.w3.org_nu_ (6).png)
+
+> [!NOTE]  
+> There are no remaining bugs that I am aware of.
