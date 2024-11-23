@@ -109,3 +109,17 @@ I've tested my deployed project on multiple devices to check for responsiveness 
 | Desktop | ![screenshot](documentation/responsiveness/desk_home.png) | ![screenshot](documentation/responsiveness/desk_products.png) | ![screenshot](documentation/responsiveness/desk_details.png) | ![screenshot](documentation/responsiveness/desk_checkout.png) | Works as expected |
 
 
+## Lighthouse Audit
+
+I've tested my deployed project using the Lighthouse Audit tool to check for any major issues.
+
+After reviewing my Google Lighthouse results, I can see there’s room for improvement in a few areas. My mobile performance score of 60 is lower than I’d like, so I plan to optimize loading speeds and reduce file sizes. I’m happy with the accessibility score of 85+, but I know I could improve it further by refining color contrast and ARIA roles. The best practices score of 75 shows there are some security and optimization issues to address, and while my SEO score of 100 is great, I’ll need to keep an eye on that. On desktop, performance at 70+ still needs some attention, and best practices (74) could be improved too. I’ll focus on improving these areas while keeping my accessibility and SEO scores strong.
+
+
+| Page | Mobile | Desktop | Notes |
+| --- | --- | --- | --- |
+| Home | ![screenshot](documentation/lighthouse/lh_home_mobile.png) | ![screenshot](documentation/lighthouse/lh_home_desktop.png) | Mobile performance needs improvement, while accessibility, best practices, and SEO can be fine-tuned over time. |
+| Product | ![screenshot](documentation/lighthouse/lh_products_mobile.png) | ![screenshot](documentation/lighthouse/lh_products_desktop.png) | Some minor warnings, mostly image loading times |
+| Checkout | ![screenshot](documentation/lighthouse/lh_checkout_mobile.png) | ![screenshot](documentation/lighthouse/lh_checkout_desktop.png) | Slow response time due to image rendering |
+
+
