@@ -7,15 +7,15 @@
             <!-- Navigation Bar -->
             <nav class="d-flex justify-content-between align-items-center">
                 <!-- Logo (First Section) -->
-                <section class="d-flex align-items-center">
+                <div class="d-flex align-items-center">
                     <a class="navbar-brand d-flex align-items-center me-4" href="{% url 'home' %}">
                         <!-- Logo -->
                         <img src="{% static 'img/shoply_logo.png' %}" alt="Shoply Logo">
                         Shoply
                       </a>
-                </section>
+                    </div>
                 <!-- User Icons (Last Section) -->
-                <section class="d-flex align-items-center">
+                <div class="d-flex align-items-center">
                     <ul class="nav d-flex">
                         <!-- Sign-In (Visible only when user is not authenticated) -->
                         {% if not request.user.is_authenticated %}
@@ -60,7 +60,7 @@
                             </a>
                         </li>
                     </ul>
-                </section>
+                </div>
             </nav>
         </div>
     </div>
@@ -73,7 +73,7 @@
             <!-- Categories Dropdown and Search Bar -->
             <nav class="d-flex justify-content-between align-items-center">
                 <!-- Categories Dropdown -->
-                <section class="d-flex align-items-center">
+                <div class="d-flex align-items-center">
                     <ul class="nav">
                         <li class="nav-item dropdown">
                             <button class="nav-link btn btn-link text-dark d-flex align-items-center ps-0" type="button"
@@ -95,9 +95,9 @@
                             </ul>
                         </li>
                     </ul>
-                </section>
+                </div>
                 <!-- Search Bar (Last Section) -->
-                <section class="d-flex justify-content-center align-items-center flex-grow-1">
+                <div class="d-flex justify-content-center align-items-center flex-grow-1">
                     <form class="d-flex mx-auto w-100" method="get" action="{% url 'products' %}">
                         <div class="input-group">
                             <!-- Search Bar -->
@@ -112,7 +112,7 @@
                             </button>
                         </div>
                     </form>
-                </section>
+                </div>
             </nav>
         </div>
     </div>
