@@ -31,3 +31,13 @@ I have used the recommended [CSS Jigsaw Validator](https://jigsaw.w3.org/css-val
 | profiles | profile.css | ![screenshot](documentation/css_validation/profile_css_val.png) | |
 | static | style.css | ![screenshot](documentation/css_validation/style_css_val.png) | |
 
+### JavaScript
+
+I have used the recommended [JShint Validator](https://jshint.com) to validate all of my JS files.
+
+| Directory | File | Screenshot | Notes |
+| --- | --- | --- | --- |
+| checkout | stripe_elements.js | ![screenshot](documentation/js_validation/stripe_js_val.png) | |
+| profiles | countryfield.js | ![screenshot](documentation/js_validation/prof_js_val.png) | |
+| static | main.js | ![screenshot](documentation/js_validation/main_js_val.png) | The errors shown in this screenshot are related to the Bootstrap Tooltip JavaScript. For reference, I've included the official documentation here: Bootstrap Tooltip Documentation.|
+
