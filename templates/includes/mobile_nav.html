@@ -25,7 +25,7 @@
                                 <i class="fa-solid fa-user" style="font-size: 20px;"></i>
                                 Account
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="{% url 'account_login' %}" data-bs-toggle="tooltip"
                                     data-bs-placement="bottom" title="Sign In">Sign In</a></li>
                                 <li><a class="dropdown-item" href="{% url 'account_signup' %}" data-bs-toggle="tooltip"
@@ -42,7 +42,7 @@
                                 <i class="fa-solid fa-user-circle" style="font-size: 20px;"></i>
                             </a>
                             <!-- Dropdown Menu -->
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <ul class="dropdown-menu">
                                 {% if request.user.is_superuser %}
                                 <li><a class="dropdown-item" href="add_product"><span>Website Management</span></a></li>
                                 {% else %}
