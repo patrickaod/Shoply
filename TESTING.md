@@ -140,3 +140,7 @@ After reviewing my Google Lighthouse results, I can see there’s room for impro
 | As a site administrator, I should be able to see all products, so that I can check site inventory. | ![screenshot](documentation/features/admin.png) |
 | As a site administrator, I should be able to see change products, so that I can update site inventory. | ![screenshot](documentation/features/admin_options.png) |
 
+## Automated Testing
+
+I fully acknowledge that automated testing would be an essential part of a comprehensive testing strategy in a real-world scenario. In this case, my testing approach has been more manual, focusing on key aspects of browser compatibility and user experience. 
+
