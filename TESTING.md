@@ -123,6 +123,22 @@ After reviewing my Google Lighthouse results, I can see there’s room for impro
 | Checkout | ![screenshot](documentation/lighthouse/lh_checkout_mobile.png) | ![screenshot](documentation/lighthouse/lh_checkout_desktop.png) | Slow response time due to image rendering |
 
 
+## Defensive Programming
+
+Defensive programming was manually tested with the below user acceptance testing:
+
+| Location | Expectation | Test | Result | Fix | Screenshot |
+| --- | --- | --- | --- | --- | --- |
+| User | | | | | |
+| | User delivery form will allow a user to input any information they want. | Tested the feature by inputing characters, symbols, and numbers | The feature behaved as expected, and it let me save anything | Test concluded and failed. In future, I need to include form santisation. | ![screenshot](documentation/defense/user_delivery_form.png) |
+| | Feature is expected to reject all unspecified formats and strings | Tested the feature by inputting wrong infomration | The feature did responded as expected, but the level of specificity could be improved for greater protection| Test concluded and passed, with notes | ![screenshot](documentation/defense/user_signup.png) |
+| | Feature is expected to reject all users if cookies are missing | Tested the feature by deleting cookies | The feature did responded as expected | Test concluded and passed | ![screenshot](documentation/features/login.png) |
+| Products | | | | | |
+| | Feature is expected to prevent submitting values outside of a given range | Tested the feature by using a scroll, refreshin the page while holding keys, inputing characters and numbers. | The feature behaved as expected, and prevent submitting outside it's limits| Test concluded and passed | ![screenshot](documentation/defense/quantity_limit.png) |
+| | The add products panel is expected to stop admins entering non-valid entries | I tested this by entering different information into the fields | The non-specific information was blocked as only a number is expected in the stars field, but it also prevent me from doing outside of the range set with the `Validators`.| The feature responded as expected, but features like these should be implemented across the models. | ![screenshot](documentation/defense/admin_stars.png) |
+| Navigation | | | | | |
+| | Can I brute force user accounts ? | Tested the by inputting various terms into the URL: test accounts, 'user', 'account', ect... | Django and allauth worked as expected | Test concluded and passed | ![screenshot](documentation/defense/brute_force.png) |
+
 ## User Story Testing
 
 | User Story | Screenshot |
