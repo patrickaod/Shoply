@@ -115,7 +115,6 @@ p {
   z-index: -1;
 }
 .shop-now-section h1 {
-  z-index: 1;
   color: black; 
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); 
   position: relative; 
@@ -127,7 +126,6 @@ p {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 .shop-now-button {
-  z-index: 1;
   background-color: #ff9900;
   padding: 10px 20px;
   font-size: 20px;
@@ -274,11 +272,11 @@ p {
   text-decoration: underline; /* Underline on hover */
 }
 /* Product_details */
-  /* Image Styling */
-  .image-container img {
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+/* Image Styling */
+.image-container img {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
 }
 .image-container img:hover {
     transform: scale(1.05);
