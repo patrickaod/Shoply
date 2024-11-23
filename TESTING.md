@@ -97,3 +97,15 @@ I've tested my deployed project on multiple browsers to check for compatibility 
 | Chrome | ![screenshot](documentation/browser_compat/chrome_home.png) | ![screenshot](documentation/browser_compat/chrome_products.png) | ![screenshot](documentation/browser_compat/chrome_prod_details.png) | ![screenshot](documentation/browser_compat/chrome_checkout.png) | Works as expected |
 | Edge | ![screenshot](documentation/browser_compat/edge_home.png) | ![screenshot](documentation/browser_compat/edge_products.png) | ![screenshot](documentation/browser_compat/edge_prod_details.png) | ![screenshot](documentation/browser_compat/edge_checkout.png) | Works as expected |
 | Firefox | ![screenshot](documentation/browser_compat/fox_home.png) | ![screenshot](documentation/browser_compat/fox_products.png) | ![screenshot](documentation/browser_compat/fox_prod_details.png) | ![screenshot](documentation/browser_compat/fox_checkout.png) | Works as expected |
+
+## Responsiveness
+
+I've tested my deployed project on multiple devices to check for responsiveness issues.
+
+| Device | Home | Product | Details | Checkout | Notes |
+| --- | --- | --- | --- | --- | --- |
+| Mobile (DevTools) | ![screenshot](documentation/responsiveness/mob_home.png) | ![screenshot](documentation/responsiveness/mob_products.png) | ![screenshot](documentation/responsiveness/mob_details.png) | ![screenshot](documentation/responsiveness/mob_checkout.png) | Works as expected |
+| Tablet (DevTools) | ![screenshot](documentation/responsiveness/tab_home.png) | ![screenshot](documentation/responsiveness/tab_products.png) | ![screenshot](documentation/responsiveness/tab_details.png) | ![screenshot](documentation/responsiveness/tab_checkout.png) | Works as expected |
+| Desktop | ![screenshot](documentation/responsiveness/desk_home.png) | ![screenshot](documentation/responsiveness/desk_products.png) | ![screenshot](documentation/responsiveness/desk_details.png) | ![screenshot](documentation/responsiveness/desk_checkout.png) | Works as expected |
+
+
