@@ -156,7 +156,7 @@ I fully acknowledge that automated testing would be an essential part of a compr
 
     ![screenshot](documentation/bugs/pep8ci.herokuapp.com_ (1).png)
 
-    - To fix this, I by re-oganising onto different lines or shortening phrasing.
+    - To fix this by re-oganising onto different lines or shortening phrasing.
 
 ## Unfixed Bugs
 
