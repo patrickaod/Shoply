@@ -86,3 +86,14 @@ I have used the recommended [PEP8 CI Python Linter](https://pep8ci.herokuapp.com
 | user_activity | models.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/patrickaod/Shoply/main/user_activity/models.py) | ![screenshot](documentation/python_validation/pep8ci.herokuapp.com_https___raw.githubusercontent.com_patrickaod_Shoply_main_user_activity_models.py.png) | |
 | user_activity | views.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/patrickaod/Shoply/main/user_activity/views.py) | ![screenshot](documentation/python_validation/pep8ci.herokuapp.com_https___raw.githubusercontent.com_patrickaod_Shoply_main_user_activity_views.py.png) | |
 
+## Browser Compatibility
+
+Cross-browser testing is important to make sure your website works well on different browsers, like Chrome, Firefox, Safari, and Edge. Since each browser can show things a little differently, testing helps catch any problems with how your site looks or works.
+
+I've tested my deployed project on multiple browsers to check for compatibility issues.
+
+| Browser | Home | Product | Product Details | Checkout | Notes |
+| --- | --- | --- | --- | --- | --- |
+| Chrome | ![screenshot](documentation/browser_compat/chrome_home.png) | ![screenshot](documentation/browser_compat/chrome_products.png) | ![screenshot](documentation/browser_compat/chrome_prod_details.png) | ![screenshot](documentation/browser_compat/chrome_checkout.png) | Works as expected |
+| Edge | ![screenshot](documentation/browser_compat/edge_home.png) | ![screenshot](documentation/browser_compat/edge_products.png) | ![screenshot](documentation/browser_compat/edge_prod_details.png) | ![screenshot](documentation/browser_compat/edge_checkout.png) | Works as expected |
+| Firefox | ![screenshot](documentation/browser_compat/fox_home.png) | ![screenshot](documentation/browser_compat/fox_products.png) | ![screenshot](documentation/browser_compat/fox_prod_details.png) | ![screenshot](documentation/browser_compat/fox_checkout.png) | Works as expected |
